@@ -1,0 +1,31 @@
+{
+  "name": "component_pc",
+  "version": "1.0.0",
+  "description": "Trabajo del primer Trimestre de Entorno Cliente",
+  "main": "index.js",
+  "scripts": {
+    "fix-estilo": "npx eslint --fix ./src/",
+    "estilo": "npx eslint ./src/*",
+    "traducir": "npx babel src -d out",
+    "minimizar": "npx uglifyjs \"out/*\" --cm -o \"dest/archivo.min.js\"",
+    "build": "npm run arreglar-estilo && npm run estilo && npm run traducir && npm run minimizar"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndresADAits/ComponentPC.git"
+  },
+  "author": "alfredo y andrés",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndresADAits/ComponentPC/issues"
+  },
+  "homepage": "https://github.com/AndresADAits/ComponentPC#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^6.6.0",
+    "jsdoc": "^3.6.3",
+    "uglify-js": "^3.6.5"
+  },
+  "dependencies": {}
+}
