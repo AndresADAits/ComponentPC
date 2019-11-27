@@ -22,7 +22,7 @@ class movil {
 		this._ram = ram;
 		this._bateria = bateria;
 		this._camara = camara;
-		this._votos = votos;
+		this._votos = [];
 	}
 	get modelo() {
 		return this._modelo;
