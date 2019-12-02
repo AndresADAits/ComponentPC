@@ -22,7 +22,7 @@ class movil {
 		this._ram = ram;
 		this._bateria = bateria;
 		this._camara = camara;
-		this._listaVotos=[];
+		this._listaVotos = [];
 	}
 	get modelo() {
 		return this._modelo;
@@ -78,17 +78,23 @@ class movil {
 	set(camara) {
 		this._camara = camara;
 	}
+	get listaVotos(){
+		return this._listaVotos;
+	}
+	set (listaVotos){
+		this._listaVotos=listaVotos;
+	}
 
-	addVoto(voto){
-        this._listaVotos.push(voto);
-    }
+	addVoto(voto) {
+		this._listaVotos.push(voto);
+	}
 
-    mostrarVotos(){
-        for(let voto of this.listaVotos){
-            console.log(voto);
-        }
-    }
-	
+	mostrarVotos() {
+		for (let voto of this.listaVotos) {
+			console.log(voto);
+		}
+	}
+
 }
 
 
@@ -106,7 +112,11 @@ class movil {
 
 class votos {
 	constructor(puntuacion, usuario, movil) {
-
+		this._puntuacion = puntuacion;
+		this._usuario = usuario;
+		this._movil = movil;
+		usuario.addVoto(this);
+		movil.addVoto(this);
 	}
 	get puntuacion() {
 		return this._puntuacion;
@@ -114,17 +124,19 @@ class votos {
 	set puntuacion(puntuacion) {
 		this._puntuacion = puntuacion;
 	}
-	get usuario() {
-		return this._puntuacion;
+	get usuario(){
+		return `${this._usuario}`;
 	}
-	set usuario(usuario) {
-		this._usuario = usuario;
+
+	set usuario(usuario){
+		this._usuario=usuario;
 	}
-	get movil() {
-		return this._movil;
+	get movil(){
+		return `${this._movil}`;
 	}
-	set movil(movil) {
-		this._movil = movil;
+
+	set movil(movil){
+		this._movil=movil;
 	}
 
 }
@@ -135,12 +147,12 @@ class votos {
 class usuario {
 	/**constructor(edad, nombre, apellido, dni, correo, votos) */
 	constructor(edad, nombre, apellido, dni, correo) {
-		this._edad=edad;
-		this._nombre=nombre;
-		this._apellido=apellido;
-		this._dni=dni;
-		this._correo=correo;
-		this._listaVotos=[];
+		this._edad = edad;
+		this._nombre = nombre;
+		this._apellido = apellido;
+		this._dni = dni;
+		this._correo = correo;
+		this._listaVotos = [];
 	}
 	get edad() {
 		return this._edad;
@@ -170,17 +182,24 @@ class usuario {
 	set correo(correo) {
 		this._correo = correo;
 	}
-	
-	addVoto(voto){
-        this._listaVotos.push(voto);
-    }
 
-    mostrarVotos(){
-        for(let voto of this.listaVotos){
-            console.log(voto);
-        }
-    }
-	
+	get listaVotos(){
+		return this._listaVotos;
+	}
+	set (listaVotos){
+		this._listaVotos=listaVotos;
+	}
+
+	addVoto(voto) {
+		this._listaVotos.push(voto);
+	}
+
+	mostrarVotos() {
+		for (let voto of this.listaVotos) {
+			console.log(voto);
+		}
+	}
+
 
 }
 
