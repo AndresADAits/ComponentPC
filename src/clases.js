@@ -13,7 +13,7 @@
  * VOTOS, SERA LA RELACION CON LA CLASE VOTOS
  */
 class movil {
-	constructor(modelo, precio, marca, pantalla, rom, ram, bateria, camara, votos) {
+	constructor(modelo, precio, marca, pantalla, rom, ram, bateria, camara, listaVotos) {
 		this._modelo = modelo;
 		this._precio = precio;
 		this._marca = marca;
@@ -22,7 +22,7 @@ class movil {
 		this._ram = ram;
 		this._bateria = bateria;
 		this._camara = camara;
-		this._votos = [];
+		listaVotos = [];
 	}
 	get modelo() {
 		return this._modelo;
@@ -77,13 +77,6 @@ class movil {
 	}
 	set(camara) {
 		this._camara = camara;
-	}
-
-	get votos() {
-		return this._votos;
-	}
-	set(votos) {
-		this._votos = votos;
 	}
 }
 
