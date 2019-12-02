@@ -13,7 +13,7 @@
  * VOTOS, SERA LA RELACION CON LA CLASE VOTOS
  */
 class movil {
-	constructor(modelo, precio, marca, pantalla, rom, ram, bateria, camara, listaVotos) {
+	constructor(modelo, precio, marca, pantalla, rom, ram, bateria, camara) {
 		this._modelo = modelo;
 		this._precio = precio;
 		this._marca = marca;
@@ -22,7 +22,7 @@ class movil {
 		this._ram = ram;
 		this._bateria = bateria;
 		this._camara = camara;
-		listaVotos = [];
+		this._listaVotos=[];
 	}
 	get modelo() {
 		return this._modelo;
@@ -78,6 +78,17 @@ class movil {
 	set(camara) {
 		this._camara = camara;
 	}
+
+	addVoto(voto){
+        this._listaVotos.push(voto);
+    }
+
+    mostrarVotos(){
+        for(let voto of this.listaVotos){
+            console.log(voto);
+        }
+    }
+	
 }
 
 
@@ -124,6 +135,12 @@ class votos {
 class usuario {
 	/**constructor(edad, nombre, apellido, dni, correo, votos) */
 	constructor(edad, nombre, apellido, dni, correo) {
+		this._edad=edad;
+		this._nombre=nombre;
+		this._apellido=apellido;
+		this._dni=dni;
+		this._correo=correo;
+		this._listaVotos=[];
 	}
 	get edad() {
 		return this._edad;
@@ -153,25 +170,18 @@ class usuario {
 	set correo(correo) {
 		this._correo = correo;
 	}
-	/**get votos() {
-		return this._votos;
-	}
-	set voto(voto) {
-		this._votos = votos;
-	} */
-	/**
-	 * Añadimos metodos parecidos?
-	 * como?
-	 *   addLibro(libro){
-        this._libros.push(libro);
+	
+	addVoto(voto){
+        this._listaVotos.push(voto);
     }
 
-    mostrarLibros(){
-        for(let libro of this.libros){
-            console.log(libro);
+    mostrarVotos(){
+        for(let voto of this.listaVotos){
+            console.log(voto);
         }
     }
-	 */
+	
+
 }
 
 
@@ -189,6 +199,8 @@ let usuario1 = new usuario(25, "Jorge", "Baron", "28826598p", "jorge.baron@adait
 
 let movil1 = new movil("3330", 300, "nokia", 3, 64, 4, 3000, 48);
 let votos1 = new votos(9, usuario1, movil1);
+movil1.addVoto(votos1);
+usuario1.addVoto(usuario1);
 
 usuario1.add
 
