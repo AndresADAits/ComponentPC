@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+ <html class="no-js"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
         <script src="clases.js" cache="false"></script>
+        <script src="usuario.js" cache="false"></script>
     </head>
     <body>
             <nav align="center">
@@ -22,7 +20,40 @@
                         
                     </p>
                 </nav>
-        
+              <!-- * Página del Usuario:
+    * Función que permita a un usuario votar y opinar sobre el elemento.
+    * Función que permitar obtener los elementos que ha votado un usuario.
+    * Función que obtenga los elementos similares a los elementos favoritos del usuario.
+    * Una función definida por el alumno y que encaje en la funcionalidad de la página.-->
+    <form action="" id="formularioenviarVoto">
+        <fieldset>
+            <legend>Votar y Opinar</legend>
+            <div class="addComment">
+                <label for="nombreUsuario">Nombre de Usuario</label>
+                <input type="text" name="nombreUsuario" id="nombreUsuario" class="inputForm" placeholder="Nombre de Usuario"><br>
+
+                <label for="movilP">Movil</label>
+                <select id="movilP" name="movilP">
+                        <option value="">-Seleccionar-</option>
+                        
+                </select><br>
+                
+                Puntuacion
+                <label><input type="text" name="votacion" id="votacion" value=""></label>
+                
+
+                <label for="inputComentario">Comentario</label><br>
+                <textarea rows="4" cols="50" name="inputComentario" id="inputComentario" class="inputForm" placeholder="Escriba un comentario"></textarea>
+
+                <button type="button" class="enviarVoto" id="enviarVoto">Enviar Voto</button>
+
+                <div class="errores" id="erroresVotoOpin">
+
+
+                </div>
+            </div>
+        </fieldset>
+    </form>    
         <script src="" async defer></script>
     </body>
 </html>
