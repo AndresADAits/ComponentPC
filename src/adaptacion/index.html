@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>EJEMPLO DE VOTOS</title>
+    <script src="objetos.js" cache="false"></script>
+    <script src="usuarios.js" cache="false"></script>
+</head>
+<body>
+<div>
+    <h1>[COMPONENT PC]</h1>
+    <div>
+    <h2>USUARIO</h1>
+        <select id="selectUsuario" >
+            <option value=""></option>
+        </select>
+        <button id="botonRecargar">RECARGAR LISTA</button>
+    </div>
+    <div>
+        <h2>MOSTRAR MOVILES QUE HA VOTADO:<span id="nombre_usuario"></span></h1>
+        <ul id="moviles_votados" >
+            
+        </ul>
+    </div>
+</div>
+<div>
+    <h1>Ejemplo de votar</h1>
+    <form id="formularioVotar">
+    <div>
+        <span>USUARIO:</span>    
+        <select id="selectUsuarioVotar" >
+            <option value=""></option>
+        </select>
+    </div>
+    <h2>SELECCIONA EL USUARIO</h1>
+        <span>MOVIL:</span>
+        <select id="selectMovilVotar" >
+            <option value=""></option>
+        </select>
+    </div>
+    <div>
+        <span>PUNTUACION:</span>
+        <input id="gusta" type="radio" name="puntuacion" value="1" />
+        <label>ME GUSTA</label>
+        <input id="no_gusta" type="radio" name="puntuacion" value="0" />
+        <label>NO GUSTA</label>
+    </div>
+    <div>
+        <label for="observaciones">Observaciones</label>
+        <textarea id="observaciones" name="observaciones">
+
+        </textarea>
+    </div>
+    <input type="submit" value="votar">
+</div>
+
+</body>
+</html>
