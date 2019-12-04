@@ -7,6 +7,10 @@
     <script src="usuarios.js" cache="false"></script>
 </head>
 <body>
+
+        <div>
+                <h1>[COMPONENT PC]</h1>
+                <div>
         <nav align="center">
                 <p>
                     <a href="busqueda.html">BUSQUEDA</a> |
@@ -23,51 +27,45 @@
     * Función que permitar obtener los elementos que ha votado un usuario.
     * Función que obtenga los elementos similares a los elementos favoritos del usuario.
     * Una función definida por el alumno y que encaje en la funcionalidad de la página.-->
-<div>
-    <h1>[COMPONENT PC]</h1>
-    <div>
-    <h2>USUARIO</h1>
+
+    <h2>Seleccione usuario para ver que moviles ha votado</h1>
         <select id="selectUsuario" >
             <option value=""></option>
         </select>
-        <button id="botonRecargar">RECARGAR LISTA</button>
+        <button id="botonRecargar">Recargar lista usuarios</button>
     </div>
     <div>
-        <h2>MOSTRAR MOVILES QUE HA VOTADO:<span id="nombre_usuario"></span></h1>
+        <h2>Moviles por los que ha votado el usuario => <span id="nombre_usuario"></span></h1>
         <ul id="moviles_votados" >
             
         </ul>
     </div>
 </div>
 <div>
-    <h1>Ejemplo de votar</h1>
+    
     <form id="formularioVotar">
-    <div>
-        <span>USUARIO:</span>    
-        <select id="selectUsuarioVotar" >
-            <option value=""></option>
-        </select>
-    </div>
-    <h2>SELECCIONA EL USUARIO</h1>
-        <span>MOVIL:</span>
+    
+    <h2>Elige un movil para votar por el</h1>
+        <span>Lista de moviles:</span>
         <select id="selectMovilVotar" >
             <option value=""></option>
         </select>
-    </div>
-    <div>
-        <span>PUNTUACION:</span>
+    
+   
+        <span>Te gusta? </span>
         <input id="gusta" type="radio" name="puntuacion" value="1" />
-        <label>ME GUSTA</label>
+        <label>Like</label>
         <input id="no_gusta" type="radio" name="puntuacion" value="0" />
-        <label>NO GUSTA</label>
-    </div>
-    <div>
-        <label for="observaciones">Observaciones</label>
+        <label>Dislike</label>
+    
+    
+        <label for="observaciones">Comentarios extras</label>
         <textarea id="observaciones" name="observaciones">
 
         </textarea>
-    </div>
+    
     <input type="submit" value="votar">
+    </form>
 </div>
 
 </body>

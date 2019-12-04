@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded",function(){
     crearSelectUsuario("selectUsuario");
-    crearSelectUsuario("selectUsuarioVotar");
     crearSelectMoviles("selectMovilVotar");
     
     let selectUsuario = document.getElementById("selectUsuario");
@@ -43,15 +42,18 @@ function obtenerMovilesVotados(event){
     let spanNombreUsuario = document.getElementById("nombre_usuario");
     spanNombreUsuario.innerHTML = "";
     if(idUsuarioSeleccionado !== ""){
-        let movilesVotados = [];
+       // intentando que salgan los datos de puntuacion y observaciones
+      // let movilesVotados=listaTodosLosVotos;
+      let movilesVotados = [];
         let persona = listaUsuarios.find( persona => persona.id === parseInt(idUsuarioSeleccionado));
         spanNombreUsuario.innerHTML = persona.nombre;
         persona.votos.forEach( voto => movilesVotados.push(voto.movil)); 
         for(let movilVotado of movilesVotados){
             let liMovil = document.createElement("li");
-            liMovil.innerHTML = movilVotado.marca +" "+ movilVotado.modelo;
+          //  liMovil.innerHTML = movilVotado.marca +" "+ movilVotado.modelo +" "+movilVotado.puntuacion;
+          liMovil.innerHTML = movilVotado.marca +" "+ movilVotado.modelo;
             ulMovilesVotados.appendChild(liMovil);
-          //  let pMarca= document.
+        
         }
     }
 }
@@ -59,14 +61,14 @@ function obtenerMovilesVotados(event){
 function validarMovil(){
     let esCorrecto = true;
     let select = document.getElementById("selectMovilVotar");
-    let selectUsuarioVotar = document.getElementById("selectUsuarioVotar");
+    let selectUsuarioVotar = document.getElementById("selectUsuario");
     let idMovilVotar = select.value;
     let idUsuarioSeleccionado = selectUsuarioVotar.value;
     let usuarioAVotar = listaUsuarios.find( persona => persona.id === parseInt(idUsuarioSeleccionado));
     let movilAVotar = listaMoviles.find( movil => movil.id === parseInt(idMovilVotar));
     let haVotado = usuarioAVotar.votos.some( voto => voto.movil.id === parseInt(idMovilVotar) );
     if(haVotado){
-        alert(`EL USUARIO ${usuarioAVotar.nombre} YA HA VOTADO AL MoviL ${movilAVotar.modelo}`)
+        alert(`${usuarioAVotar.nombre} ya has votado por el movil ${movilAVotar.modelo}`)
     }
     return esCorrecto;
 }
@@ -76,7 +78,7 @@ function votarMovil(event){
     let formulario = document.getElementById("formularioVotar");
     let esMovilCorrecto = validarMovil();
     if(esMovilCorrecto){
-        let selectUsuario = document.getElementById("selectUsuarioVotar");
+        let selectUsuario = document.getElementById("selectUsuario");
         let selectMovil = document.getElementById("selectMovilVotar");
         let idUsuarioSeleccionado = selectUsuario.value;
         let idMovilVotar = selectMovil.value;

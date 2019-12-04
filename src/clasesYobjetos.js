@@ -11,6 +11,7 @@ class Movil{
         this.ram = ram;
         this.bateria = bateria;
         this.camara = camara;
+        this.precio=precio;
         this.propietario = null;
         this.votos = [];
     }
