@@ -1,59 +1,74 @@
 <!DOCTYPE html>
- <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>USUARIO</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-        <script src="clases.js" cache="false"></script>
-        <script src="usuario.js" cache="false"></script>
-    </head>
-    <body>
-            <nav align="center">
-                    <p>
-                        <a href="busqueda.html">BUSQUEDA</a> |
-                        <a href="edicion.html">EDICION</a> |
-                        <a href="gestion.html">GESTION</a> |
-                        <a href="usuario.html">USUARIO</a> |
-                        
-                    </p>
-                </nav>
-              <!-- * Página del Usuario:
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>EJEMPLO DE VOTOS</title>
+    <script src="clasesYobjetos.js" cache="false"></script>
+    <script src="usuarios.js" cache="false"></script>
+</head>
+<body>
+        <nav align="center">
+                <p>
+                    <a href="busqueda.html">BUSQUEDA</a> |
+                    <a href="edicion.html">EDICION</a> |
+                    <a href="gestion.html">GESTION</a> |
+                    <a href="usuario.html">USUARIO</a> |
+                    
+                </p>
+            </nav>
+
+            <!--* 
+  * Página del Usuario:
     * Función que permita a un usuario votar y opinar sobre el elemento.
     * Función que permitar obtener los elementos que ha votado un usuario.
     * Función que obtenga los elementos similares a los elementos favoritos del usuario.
     * Una función definida por el alumno y que encaje en la funcionalidad de la página.-->
-    <form action="" id="formularioenviarVoto">
-        <fieldset>
-            <legend>Votar y Opinar</legend>
-            <div class="addComment">
-                <label for="nombreUsuario">Nombre de Usuario</label>
-                <input type="text" name="nombreUsuario" id="nombreUsuario" class="inputForm" placeholder="Nombre de Usuario"><br>
+<div>
+    <h1>[COMPONENT PC]</h1>
+    <div>
+    <h2>USUARIO</h1>
+        <select id="selectUsuario" >
+            <option value=""></option>
+        </select>
+        <button id="botonRecargar">RECARGAR LISTA</button>
+    </div>
+    <div>
+        <h2>MOSTRAR MOVILES QUE HA VOTADO:<span id="nombre_usuario"></span></h1>
+        <ul id="moviles_votados" >
+            
+        </ul>
+    </div>
+</div>
+<div>
+    <h1>Ejemplo de votar</h1>
+    <form id="formularioVotar">
+    <div>
+        <span>USUARIO:</span>    
+        <select id="selectUsuarioVotar" >
+            <option value=""></option>
+        </select>
+    </div>
+    <h2>SELECCIONA EL USUARIO</h1>
+        <span>MOVIL:</span>
+        <select id="selectMovilVotar" >
+            <option value=""></option>
+        </select>
+    </div>
+    <div>
+        <span>PUNTUACION:</span>
+        <input id="gusta" type="radio" name="puntuacion" value="1" />
+        <label>ME GUSTA</label>
+        <input id="no_gusta" type="radio" name="puntuacion" value="0" />
+        <label>NO GUSTA</label>
+    </div>
+    <div>
+        <label for="observaciones">Observaciones</label>
+        <textarea id="observaciones" name="observaciones">
 
-                <label for="movilP">Movil</label>
-                <select id="movilP" name="movilP">
-                        <option value="">-Seleccionar-</option>
-                        
-                </select><br>
-                
-                Puntuacion
-                <label><input type="text" name="votacion" id="votacion" value=""></label>
-                
+        </textarea>
+    </div>
+    <input type="submit" value="votar">
+</div>
 
-                <label for="inputComentario">Comentario</label><br>
-                <textarea rows="4" cols="50" name="inputComentario" id="inputComentario" class="inputForm" placeholder="Escriba un comentario"></textarea>
-
-                <button type="button" class="enviarVoto" id="enviarVoto">Enviar Voto</button>
-
-                <div class="errores" id="erroresVotoOpin">
-
-
-                </div>
-            </div>
-        </fieldset>
-    </form>    
-        <script src="" async defer></script>
-    </body>
+</body>
 </html>
