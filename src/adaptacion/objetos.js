@@ -1,10 +1,16 @@
 class Movil{
-    constructor(id,nombre,especie,raza,vida){
+    //constructor(modelo, precio, marca, pantalla, rom, ram, bateria, camara)
+    //let n3310 = new Movil(1,"n3310","Nokia","Caniche",5);
+    // constructor(id,modelo,marca,pantalla,rom){
+    constructor(id,modelo,marca,pantalla,rom,ram,bateria,camara,precio){
         this.id = id;//Para identificarlo de forma única
-        this.nombre = nombre;
-        this.especie = especie;
-        this.raza = raza;
-        this.vida = vida;
+        this.modelo = modelo;
+        this.marca = marca;
+        this.pantalla = pantalla;
+        this.rom = rom;
+        this.ram = ram;
+        this.bateria = bateria;
+        this.camara = camara;
         this.propietario = null;
         this.votos = [];
     }
@@ -17,37 +23,68 @@ class Movil{
         this._id = id; 
     }
 
-    get nombre(){
-        return this._nombre;
+    get modelo(){
+        return this._modelo;
     }
 
-    set nombre(nombre){
-        this._nombre = nombre; 
+    set modelo(modelo){
+        this._modelo = modelo; 
     }
 
-    get especie(){
-        return this._especie;
+    get marca(){
+        return this._marca;
     }
 
-    set especie(especie){
-        this._especie = especie; 
+    set marca(marca){
+        this._marca = marca; 
     }
 
-    get raza(){
-        return this._raza;
+    get pantalla(){
+        return this._pantalla;
     }
 
-    set raza(raza){
-        this._raza = raza; 
+    set pantalla(pantalla){
+        this._pantalla = pantalla; 
     }
 
-    get vida(){
-        return this._vida;
+    get rom(){
+        return this._rom;
     }
 
-    set vida(vida){
-        this._vida = vida; 
+    set rom(rom){
+        this._rom = rom; 
     }
+    get ram(){
+        return this._ram;
+    }
+
+    set ram(ram){
+        this._ram = ram; 
+    }
+    
+    get bateria(){
+        return this._bateria;
+    }
+
+    set bateria(bateria){
+        this._bateria = bateria; 
+    }
+    
+    get camara(){
+        return this._camara;
+    }
+
+    set camara(camara){
+        this._camara = camara; 
+    }
+    get precio(){
+        return this._precio;
+    }
+
+    set precio(precio){
+        this._precio = precio; 
+    }
+
 
     get persona(){
         return this._persona;
@@ -91,7 +128,7 @@ class Persona{
         return this._nombre;
     }
 
-    set nombre(nombre){
+    set modelo(nombre){
         this._nombre = nombre; 
     }
 
@@ -183,16 +220,18 @@ let listaUsuarios = [];
 listaUsuarios.push(Andresito);
 listaUsuarios.push(Alfredito);
 
-let n3310 = new Movil(1,"n3310","Nokia","Caniche",5);
-let S10 = new Movil(2,"S10","Samsung","Siames",8);
-let Xpro = new Movil(3,"Xpro","Apple","BullDog",15);
-let RedmiNote7 = new Movil(4,"RedmiNote7","Xiaomi","Pastor Aleman",12);
-let P30 = new Movil(5,"P30","Huawuei","San Bernando",9);
-let OneTouch = new Movil(6,"OneTouch","Alcatel","Salchicha",4);
-let Zblade = new Movil(8,"Zblade","Motorola","Común",9);
-let Xtrem = new Movil(9,"Xtrem","Razer","Ratón de Praga",20);
-let PowerCell = new Movil(10,"PowerCell","Duracell","Pastor Belga",12);
-let Poor = new Movil(11,"Poor","ZTE","Loro",15);
+//constructor(id,modelo,marca,pantalla,rom,ram,bateria,camara){
+
+let n3310 = new Movil(1,"n3310","Nokia",3,1,1,500,1,20);
+let S10 = new Movil(2,"S10","Samsung",8,64,8,3000,32,500);
+let Xpro = new Movil(3,"Xpro","Apple",10,128,16,4000,35,800);
+let RedmiNote7 = new Movil(4,"RedmiNote7","Xiaomi",7,64,8,3500,45,350);
+let P30 = new Movil(5,"P30","Huawuei",9,64,16,3000,64,350);
+let OneTouch = new Movil(6,"OneTouch","Alcatel",2,1,1,400,1,20);
+let Zblade = new Movil(8,"Zblade","Motorola",5,64,8,3500,64,600);
+let Xtrem = new Movil(9,"Xtrem","Razer",4,64,8,5000,64,500);
+let PowerCell = new Movil(10,"PowerCell","Duracell",3,64,8,15000,64,400);
+let Poor = new Movil(11,"Poor","ZTE",4,32,4,3000,15,120);
 let listaMoviles = [];
 
 listaMoviles.push(n3310);
@@ -206,12 +245,12 @@ listaMoviles.push(Xtrem);
 listaMoviles.push(PowerCell);
 listaMoviles.push(Poor);
 
-crearVoto(Andresito,n3310,true,"Muy bonito");
-crearVoto(Andresito,S10,true,"Muy mono");
-crearVoto(Andresito,Xpro,false,"Muy Arisca");
+crearVoto(Andresito,n3310,true,"Indestructible");
+crearVoto(Andresito,S10,true,"Ok");
+crearVoto(Andresito,Xpro,false,"Hype");
 
-crearVoto(Alfredito,P30,true,"Muy bonito");
-crearVoto(Alfredito,OneTouch,true,"Muy mono");
-crearVoto(Alfredito,Zblade,false,"Muy Arisca");
+crearVoto(Alfredito,P30,true,"Camaron");
+crearVoto(Alfredito,OneTouch,true,"Retro");
+crearVoto(Alfredito,Zblade,false,"Plantalla plegable");
 
 

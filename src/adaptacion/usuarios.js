@@ -30,7 +30,7 @@ function crearSelectMoviles(idMovil){
     for(movil of listaMoviles){
         let option = document.createElement("option");
         option.value = movil.id;
-        option.innerHTML = movil.nombre;
+        option.innerHTML = movil.modelo;
         select.appendChild(option);
     }
 }
@@ -49,8 +49,9 @@ function obtenerMovilesVotados(event){
         persona.votos.forEach( voto => movilesVotados.push(voto.movil)); 
         for(let movilVotado of movilesVotados){
             let liMovil = document.createElement("li");
-            liMovil.innerHTML = movilVotado.nombre;
+            liMovil.innerHTML = movilVotado.marca +" "+ movilVotado.modelo;
             ulMovilesVotados.appendChild(liMovil);
+          //  let pMarca= document.
         }
     }
 }
@@ -65,7 +66,7 @@ function validarMovil(){
     let movilAVotar = listaMoviles.find( movil => movil.id === parseInt(idMovilVotar));
     let haVotado = usuarioAVotar.votos.some( voto => voto.movil.id === parseInt(idMovilVotar) );
     if(haVotado){
-        alert(`EL USUARIO ${usuarioAVotar.nombre} YA HA VOTADO AL MoviL ${movilAVotar.nombre}`)
+        alert(`EL USUARIO ${usuarioAVotar.nombre} YA HA VOTADO AL MoviL ${movilAVotar.modelo}`)
     }
     return esCorrecto;
 }
