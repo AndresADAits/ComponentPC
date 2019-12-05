@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html>
+
 <head lang="en">
     <meta charset="UTF-8">
     <title>EJEMPLO DE VOTOS</title>
     <script src="clasesYobjetos.js" cache="false"></script>
     <script src="usuarios.js" cache="false"></script>
 </head>
+
 <body>
 
+    <div>
+        <h1>[COMPONENT PC]</h1>
         <div>
-                <h1>[COMPONENT PC]</h1>
-                <div>
-        <nav align="center">
+            <nav align="center">
                 <p>
                     <a href="busqueda.html">BUSQUEDA</a> |
                     <a href="edicion.html">EDICION</a> |
                     <a href="gestion.html">GESTION</a> |
                     <a href="usuario.html">USUARIO</a> |
-                    
+
                 </p>
             </nav>
 
@@ -28,45 +30,60 @@
     * Función que obtenga los elementos similares a los elementos favoritos del usuario.
     * Una función definida por el alumno y que encaje en la funcionalidad de la página.-->
 
-    <h2>Seleccione usuario para ver que moviles ha votado</h1>
-        <select id="selectUsuario" >
-            <option value=""></option>
-        </select>
-        <button id="botonRecargar">Recargar lista usuarios</button>
+            <h2>Seleccione usuario para ver que moviles ha votado</h1>
+                <select id="selectUsuario">
+                    <option value=""></option>
+                </select>
+                <button id="botonRecargar">Recargar lista usuarios</button>
+        </div>
+        <div>
+            <h2>Moviles por los que ha votado el usuario => <span id="nombre_usuario"></span></h1>
+                <ul id="moviles_votados">
+
+                </ul>
+        </div>
     </div>
     <div>
-        <h2>Moviles por los que ha votado el usuario => <span id="nombre_usuario"></span></h1>
-        <ul id="moviles_votados" >
-            
-        </ul>
-    </div>
-</div>
-<div>
-    
-    <form id="formularioVotar">
-    
-    <h2>Elige un movil para votar por el</h1>
-        <span>Lista de moviles:</span>
-        <select id="selectMovilVotar" >
-            <option value=""></option>
-        </select>
-    
-   
-        <span>Te gusta? </span>
-        <input id="gusta" type="radio" name="puntuacion" value="1" />
-        <label>Like</label>
-        <input id="no_gusta" type="radio" name="puntuacion" value="0" />
-        <label>Dislike</label>
-    
-    
-        <label for="observaciones">Comentarios extras</label>
-        <textarea id="observaciones" name="observaciones">
+
+        <form id="formularioVotar">
+
+            <h2>Elige un movil para votar por el</h1>
+                <span>Lista de moviles:</span>
+                <select id="selectMovilVotar">
+                    <option value=""></option>
+                </select>
+
+
+                <span>Te gusta? </span>
+                <input id="gusta" type="radio" name="puntuacion" value="1" />
+                <label>Like</label>
+                <input id="no_gusta" type="radio" name="puntuacion" value="0" />
+                <label>Dislike</label>
+
+
+                <label for="observaciones">Comentarios extras</label>
+                <textarea id="observaciones" name="observaciones">
 
         </textarea>
-    
-    <input type="submit" value="votar">
-    </form>
-</div>
+
+                <input type="submit" value="votar">
+        </form>
+    </div>
+
+    <div>
+        <h2>Buscar moviles por rango de bateria</h2>
+        <label for="batBaja">Bateria m&iacutenima:</label>
+        <input id="batBaja" type="number" />
+        <label for="batAlta">Bateria m&aacutexima:</label>
+        <input id="batAlta" type="number" />
+        <button id="botonMuestraBateria">Mostrar moviles</button>
+    </div>
+    <div>
+        <ul id="bateria_moviles">
+
+        </ul>
+    </div>
 
 </body>
+
 </html>
