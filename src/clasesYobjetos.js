@@ -233,6 +233,11 @@ let Zblade = new Movil(8,"Zblade","Motorola",5,64,8,3500,64,600);
 let Xtrem = new Movil(9,"Xtrem","Razer",4,64,8,5000,64,500);
 let PowerCell = new Movil(10,"PowerCell","Duracell",3,64,8,15000,64,400);
 let Poor = new Movil(11,"Poor","ZTE",4,32,4,3000,15,120);
+
+let n3330 = new Movil(12,"n3330","Nokia",3,1,1,500,1,20);
+let S9 = new Movil(14,"S9","Samsung",8,64,8,3000,32,500);
+let X = new Movil(13,"X","Apple",10,128,16,4000,35,800);
+
 let listaMoviles = [];
 
 listaMoviles.push(n3310);
@@ -245,6 +250,12 @@ listaMoviles.push(Zblade);
 listaMoviles.push(Xtrem);
 listaMoviles.push(PowerCell);
 listaMoviles.push(Poor);
+
+listaMoviles.push(n3330);
+listaMoviles.push(S9);
+listaMoviles.push(X);
+
+
 
 crearVoto(Andresito,n3310,true,"Indestructible");
 crearVoto(Andresito,S10,true,"Ok");
