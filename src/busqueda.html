@@ -1,18 +1,11 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js">
-<!--<![endif]-->
+<html>
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>BUSQUEDA</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
+    <script src="clasesYobjetos.js" cache="false"></script>
+    <script src="busqueda.js" cache="false"></script>
 </head>
 
 <body>
@@ -32,7 +25,32 @@
     * Función que deberá devolver un elemento que sea similiar a otro. Los detalles que determinan si en elemento es similar a otro deberá especificarlo el alumno en el código.
     * Función que busca los elementos asociados a un usuario.
     * Una función definida por el alumno y que encaje en la funcionalidad de la página.-->
+
+    <h2>Elementos filtrados por dos campos</h2>
+        <form id="formularioMostrarMoviles">
+            <label for="select1">Precio:</label>
+            <select id="select1">
+                <option value="mas100">Más de 100€</option>
+                <option value="menos100">Menos de 100€</option>
+            </select>
+            <div id="erroresPrecio">
+
+            </div>
+            <label for="select2">Cámara:</label>
+            <select id="select2">
+                <option value="mas30">30Mpx o más</option>
+                <option value="menos30">Menos de 30MPx</option>
+            </select>
+            <div id="erroresCamara">
+
+            </div>  
+            <button id="mostrarMoviles">Filtrar</button>
+        </form>
     <script src="" async defer></script>
+    <h3>Moviles:</h3>
+    <div id="listadoMoviles">
+
+    </div>
 </body>
 
 </html>
