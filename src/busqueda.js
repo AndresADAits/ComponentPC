@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded",function(){
 function mostrarMoviles(event){
     event.preventDefault();
     mostrarMovilesRefactorizados("listadoMoviles",listaMoviles);
+    filtrarPrecio();
 }
 
 function mostrarMovilesRefactorizados(idDivMostrar,lista){
@@ -20,4 +21,12 @@ function mostrarMovilesRefactorizados(idDivMostrar,lista){
         ulMoviles.appendChild(liMovil);
     }  
     divListaMoviles.appendChild(ulMoviles);
+}
+
+function filtrarPrecio(){
+    let ncamara = parseInt((document.getElementById("camara")).value);
+    let nprecio = parseInt((document.getElementById("precio")).value);
+    console.log(listaMoviles.filter( x => nprecio === x.precio && ncamara === x.camara));
+    let listaFiltrada = listaMoviles.filter( x => nprecio === x.precio && ncamara === x.camara);
+    mostrarMovilesRefactorizados("listadoMoviles",listaFiltrada);
 }
