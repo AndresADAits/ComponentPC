@@ -4,6 +4,10 @@ document.addEventListener("DOMContentLoaded",function(){
     formularioMostrarMoviles.addEventListener("submit",mostrarMoviles);
 
     crearSelectMoviles("selectMoviles");
+    crearSelectUsuario("selectUsuario");
+
+    let selectUsuario = document.getElementById("selectUsuario");
+    selectUsuario.addEventListener("change",obtenerMovilesComprados);
 
     let selectMoviles = document.getElementById("selectMoviles");
     selectMoviles.addEventListener("change",obtenerMovilesSimilares);
@@ -76,6 +80,37 @@ function obtenerMovilesSimilares(event){
             let liMovil = document.createElement("li");
             liMovil.innerHTML = "NO SE HAN ENCONTRADO MOVILES SIMILARES";
             ulMovilesSimilares.appendChild(liMovil);
+        }
+    }
+}
+
+function crearSelectUsuario(idUsuario){
+    let select = document.getElementById(idUsuario); 
+    for(usuario of listaUsuarios){
+        let option = document.createElement("option");
+        option.value = usuario.id;
+        option.innerHTML = usuario.nombre;
+        select.appendChild(option);
+    }
+}
+
+
+function obtenerMovilesComprados(event){
+    let selector = document.getElementById("selectUsuario");
+    let idUsuarioSeleccionado = selector.value;
+    let ulMovilesComprados = document.getElementById("moviles_comprados");
+    ulMovilesComprados.innerHTML = "";
+    let spanNombreUsuario = document.getElementById("nombre_usuario");
+    spanNombreUsuario.innerHTML = "";
+    if(idUsuarioSeleccionado !== ""){
+        let persona = listaUsuarios.find( persona => persona.id === parseInt(idUsuarioSeleccionado));
+        spanNombreUsuario.innerHTML = persona.nombre;
+        for(let movil of persona.movilComprado){
+            let liMovil = document.createElement("li");
+          //  liMovil.innerHTML = movilVotado.marca +" "+ movilVotado.modelo +" "+movilVotado.puntuacion;
+          liMovil.innerHTML = movil.marca +" "+ movil.modelo;
+          ulMovilesComprados.appendChild(liMovil);
+        
         }
     }
 }

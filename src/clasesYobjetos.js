@@ -114,6 +114,7 @@ class Persona{
         this._nombre = nombre;
         this._edad = edad;
         this.votos = [];
+        this._movilComprado = [];
     }
 
 
@@ -148,11 +149,26 @@ class Persona{
     set votos(votos){
         this._votos = votos; 
     }
+    
+    get movilComprado(){
+        return this._movilComprado;
+    }
+
+    set movilComprado(movilComprado){
+        this._movilComprado = this.movilComprado; 
+    }
 
     addVoto(voto){
         this.votos.push(voto);
     }
+
+    addMovil(movilC){
+        this.movilComprado.push(movilC);
+    }
+    
 }
+
+
 
 class Voto{
     constructor(id,persona,movil,puntuacion,observaciones){
@@ -204,6 +220,7 @@ class Voto{
     }
 }
 
+
 function crearVoto(persona,movil,puntuacion,observaciones){
     let idVoto = listaTodosLosVotos.length +1;
     let voto = new Voto(idVoto,persona,movil,puntuacion,observaciones);
@@ -212,14 +229,17 @@ function crearVoto(persona,movil,puntuacion,observaciones){
     listaTodosLosVotos.push(voto);
 }
 
+
 let listaTodosLosVotos = [];
 
 let Andresito = new Persona(1,"Andresito",18);
 let Alfredito = new Persona(2,"Alfredito",23);
+let Paquito = new Persona(3,"Paquito",24,null);
 
 let listaUsuarios = [];
 listaUsuarios.push(Andresito);
 listaUsuarios.push(Alfredito);
+listaUsuarios.push(Paquito);
 
 //constructor(id,modelo,marca,pantalla,rom,ram,bateria,camara){
 
@@ -265,4 +285,6 @@ crearVoto(Alfredito,P30,true,"Camaron");
 crearVoto(Alfredito,OneTouch,true,"Retro");
 crearVoto(Alfredito,Zblade,false,"Plantalla plegable");
 
-
+Paquito.addMovil(n3310);
+Paquito.addMovil(S10);
+Alfredito.addMovil(Xpro);

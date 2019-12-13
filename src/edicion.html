@@ -13,6 +13,8 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="">
+    <script src="clasesYobjetos.js" cache="false"></script>
+    <script src="edicion.js" cache="false"></script>
 </head>
 
 <body>
@@ -31,6 +33,33 @@
     * Función que valide todos los campos de creación del elemento principal de la página. El alumno debe detallar los requisitos que deben cumplirse para que sea válido.
     * Función que debe añadir o cambiar el usuario que esta asociado al elemento. SI el elemento no tiene usuarios asociados, se crea. Si el elemento tiene un usuario asociado, se cambia.
     * Una función definida por el alumno y que encaje en la funcionalidad de la página.-->
+    <form id="formularioMostrarMoviles">
+            <h2>CREAR MOVIL</h2>
+            <label for="Id">Id:</label>
+            <input type="text" id="Id"></br>
+            <label for="Modelo">Modelo:</label>
+            <input type="text" id="Modelo"></br>
+            <label for="Marca">Marca:</label>
+            <input type="text" id="Marca"></br>
+            <label for="Pantalla">Pantalla:</label>
+            <input type="text" id="Pantalla"></br>
+            <label for="Rom">Rom:</label>
+            <input type="text" id="Rom"></br>
+            <label for="Ram">Ram:</label>
+            <input type="text" id="Ram"></br>
+            <label for="Bateria">Batería:</label>
+            <input type="text" id="Bateria"></br>
+            <label for="Camara">Cámara:</label>
+            <input type="text" id="Camara"></br>
+            <label for="Precio">Precio:</label>
+            <input type="text" id="Precio"></br>
+            <button id="crearMovil">Crear</button>
+            <button id="mostrarMoviles">Mostrar</button>
+    </form>
+    
+    <div id="listadoMoviles">
+
+    </div>
     <script src="" async defer></script>
 </body>
 
