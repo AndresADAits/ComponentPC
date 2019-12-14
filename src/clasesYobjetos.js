@@ -3,15 +3,15 @@ class Movil{
     //let n3310 = new Movil(1,"n3310","Nokia","Caniche",5);
     // constructor(id,modelo,marca,pantalla,rom){
     constructor(id,modelo,marca,pantalla,rom,ram,bateria,camara,precio){
-        this.id = id;//Para identificarlo de forma única
-        this.modelo = modelo;
-        this.marca = marca;
-        this.pantalla = pantalla;
-        this.rom = rom;
-        this.ram = ram;
-        this.bateria = bateria;
-        this.camara = camara;
-        this.precio=precio;
+        this._id = id;//Para identificarlo de forma única
+        this._modelo = modelo;
+        this._marca = marca;
+        this._pantalla = pantalla;
+        this._rom = rom;
+        this._ram = ram;
+        this._bateria = bateria;
+        this._camara = camara;
+        this._precio=precio;
         this.propietario = null;
         this.votos = [];
     }
@@ -258,6 +258,18 @@ let n3330 = new Movil(12,"n3330","Nokia",3,1,1,500,1,20);
 let S9 = new Movil(14,"S9","Samsung",8,64,8,3000,32,500);
 let X = new Movil(13,"X","Apple",10,128,16,4000,35,800);
 
+/**10 moviles que cumplan varios requistos para la primera funcion de Gestion */
+let Prototype1 = new Movil(14, "Prototype1", "Secret", 11, 256, 32, 3700, 80, 1000)
+let Prototype2 = new Movil(15, "Prototype2", "Secret", 11, 256, 32, 3700, 80, 1000)
+let Prototype3 = new Movil(16, "Prototype3", "Secret", 11, 256, 32, 3700, 80, 1000)
+let Prototype4 = new Movil(17, "Prototype4", "Secret", 11, 256, 32, 3700, 80, 1000)
+let Prototype5 = new Movil(18, "Prototype5", "Secret", 11, 256, 32, 3700, 80, 1000)
+let Prototype6 = new Movil(19, "Prototype6", "Secret", 11, 256, 32, 3700, 80, 1000)
+let Prototype7 = new Movil(20, "Prototype7", "Secret", 11, 256, 32, 3700, 80, 1000)
+let Prototype8 = new Movil(21, "Prototype8", "Secret", 11, 256, 32, 3700, 80, 1000)
+let Prototype9 = new Movil(22, "Prototype9", "Secret", 11, 256, 32, 3700, 80, 1000)
+let Prototype10 = new Movil(23, "Prototype10", "Secret", 11, 256, 32, 3700, 80, 1000)
+
 let listaMoviles = [];
 
 listaMoviles.push(n3310);
@@ -274,6 +286,19 @@ listaMoviles.push(Poor);
 listaMoviles.push(n3330);
 listaMoviles.push(S9);
 listaMoviles.push(X);
+/**
+ * Subiendo los prototipos para primera funcion de Gestion
+ */
+listaMoviles.push(Prototype1);
+listaMoviles.push(Prototype2);
+listaMoviles.push(Prototype3);
+listaMoviles.push(Prototype4);
+listaMoviles.push(Prototype5);
+listaMoviles.push(Prototype6);
+listaMoviles.push(Prototype7);
+listaMoviles.push(Prototype8);
+listaMoviles.push(Prototype9);
+listaMoviles.push(Prototype10);
 
 
 
