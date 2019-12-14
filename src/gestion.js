@@ -1,9 +1,14 @@
+$(document).ready(function () {
+    $("#tipoOrden").change(obtieneValue);
+});
+
+
 document.addEventListener("DOMContentLoaded", function () {
-   
+
     let inputSelectFiltro = document.getElementById("selectFiltro");
     inputSelectFiltro.addEventListener("change", ordenaPorFiltro);
 
-}) 
+})
 
 function mostrarMovilesOrdenados(idDivMostrar, lista) {
     let divListaMoviles = document.getElementById(idDivMostrar);
@@ -20,7 +25,7 @@ function mostrarMovilesOrdenados(idDivMostrar, lista) {
 
 
 
-function ordenaPorFiltro(event) {
+function ordenaPorFiltro() {
 
     // let listaFiltrada = listaMoviles.filter( x => nprecio === x.precio && nmarca === x.marca && ncamara === x.camara);
 
@@ -81,4 +86,23 @@ function ordenaPorFiltro(event) {
         });
         mostrarMovilesOrdenados("Movilesordenados", ordenaPrecio);
     }
+}
+
+function obtieneValue() {
+    let eleccion = $("#selectOrden").val();
+
+    let inputPrecio = $("#precio").val();
+    let inputPreParseado = parseInt(inputPrecio);
+
+    let inputMarca = $("#marca").val();
+    let inputMarParseado = inputMarca;
+
+    let inputCamara = $("#camara").val();
+    let inputCamParseado = parseInt(inputCamara);
+
+    let MovilesQueCumplen = listaMoviles.filter(movil => inputPreParseado === movil.precio && inputMarParseado === movil.marca && inputCamParseado === movil.camara);
+mostrarMovilesOrdenados("listadoMovilesQueCumplen", MovilesQueCumplen);
+
+ 
+
 }
