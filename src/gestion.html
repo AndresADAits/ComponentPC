@@ -2,6 +2,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="clasesYobjetos.js" cache="false"></script>
 <script src="gestion.js" cache="false"></script>
+<script src="funcionesGenerales.js" cache="false"></script>
 
 
 <head>
@@ -26,9 +27,9 @@
     <!--
   * Página de Gestión:
  
-    * Función que deba obtener el elemento mejor valorado y además que cumpla varios requisitos a la vez. 
+    * <<<<>>>>>>>>Función que deba obtener el elemento mejor valorado y además que cumpla varios requisitos a la vez. 
     *
-    * >>>>>>>>>>>>>Una función definida por el alumno y que encaje en la funcionalidad de la página.-->
+    * Una función definida por el alumno y que encaje en la funcionalidad de la página.-->
 
     <h2>Moviles filtrados por varios campos</h2>
     <div>
@@ -75,6 +76,23 @@
 
     <div id="Movilesordenados"></div>
 
+    <h2>Muestra moviles mejor valorados con los siguientes requisitos</h2>
+    
+<div><span>Selecciona primero el usuario:</span>
+    <select id="selectUsuario" >
+      
+        <option value=""></option>
+    </select>
+</div>
+<div>
+    <span>Finalmente seleciona el modelo del movil:</span>
+    <select id="selectMovilModelo">
+     
+        <option value=""></option>
+    </select>
+</div>
+    <h2>Moviles mejor valorados con esos requisitos</h2>
+    <div id="muestraFavoritoYfiltro"></div>
 
 </body>
 

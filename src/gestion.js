@@ -1,12 +1,28 @@
 $(document).ready(function () {
     $("#tipoOrden").change(obtieneValue);
+    
+});
+
+
+$(document).ready(function () {
+    $("#selectMovilModelo").change(muestraModeloYFiltros);
 });
 
 
 document.addEventListener("DOMContentLoaded", function () {
 
+    crearSelectUsuario("selectUsuario");
+   
+   
+    crearSelectModelos("selectMovilModelo");
+
     let inputSelectFiltro = document.getElementById("selectFiltro");
     inputSelectFiltro.addEventListener("change", ordenaPorFiltro);
+
+ 
+
+    let selectMovilModelo= document.getElementById("selectMovilModelo");
+    selectMovilModelo.addEventListener("change",muestraModeloYFiltros);
 
 })
 
@@ -101,8 +117,31 @@ function obtieneValue() {
     let inputCamParseado = parseInt(inputCamara);
 
     let MovilesQueCumplen = listaMoviles.filter(movil => inputPreParseado === movil.precio && inputMarParseado === movil.marca && inputCamParseado === movil.camara);
-mostrarMovilesOrdenados("listadoMovilesQueCumplen", MovilesQueCumplen);
+    mostrarMovilesOrdenados("listadoMovilesQueCumplen", MovilesQueCumplen);
+}
+/**
+ * CREAMOS UN SELECT CON LAS MARCAS DE MOVILES
+ */
+crearSelectUsuario(idUsuario);
 
- 
+/**
+ * CREAMOS OTRO SELECT CON LOS MODELOS DE MOVILES
+ */
+
+crearSelectModelos(modeloMovil);
+
+
+function muestraModeloYFiltros() {
+    let usuarioSeleccionado = $("#selectUsuario").val();
+
+    let modeloSelecionado = $("#selectMovilModelo").val();
+
+    for (let voto of listaTodosLosVotos) {
+        if (voto.puntuacion===1 && voto.movil===modeloSelecionado && voto.persona=== usuarioSeleccionado) {
+
+            alert("bien joder")
+
+        }
+    }
 
 }

@@ -22,15 +22,8 @@ document.addEventListener("DOMContentLoaded",function(){
     botonRecargar.addEventListener("click",obtenerMovilesVotados);
 })
 
-function crearSelectUsuario(idUsuario){
-    let select = document.getElementById(idUsuario); 
-    for(usuario of listaUsuarios){
-        let option = document.createElement("option");
-        option.value = usuario.id;
-        option.innerHTML = usuario.nombre;
-        select.appendChild(option);
-    }
-}
+crearSelectUsuario(idUsuario);
+
 
 function crearSelectMoviles(idMovil){
     let select = document.getElementById(idMovil); 
@@ -41,7 +34,9 @@ function crearSelectMoviles(idMovil){
         select.appendChild(option);
     }
 }
-function crearSelectMarcas(marcaMovil){
+crearSelectMarcas(marcaMovil);
+
+/**function crearSelectMarcas(marcaMovil){
         /**let select = document.getElementById(marcaMovil);
     let listaMarcas= [];
     for(movil of listaMoviles){
@@ -54,15 +49,15 @@ function crearSelectMarcas(marcaMovil){
         option.innerHTML = listaMarcaSin[i];
         select.appendChild(option); 
     }
-      */
-    let select = document.getElementById(marcaMovil); 
-    for(movil of listaMoviles){
-        let option = document.createElement("option");
-        option.value = movil.marca;
-        option.innerHTML = movil.marca;
-        select.appendChild(option);
-    }
-}
+      
+     let select = document.getElementById(marcaMovil); 
+     for(movil of listaMoviles){
+         let option = document.createElement("option");
+         option.value = movil.marca;
+         option.innerHTML = movil.marca;
+         select.appendChild(option);
+     }
+ } */
 
 function muestraMovilMismaMarca() {
     /**
