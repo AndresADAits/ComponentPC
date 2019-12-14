@@ -1,3 +1,7 @@
+$(document).ready(function () {
+    $("#selectOrden").change(movilMayorMenor);
+  });
+
 document.addEventListener("DOMContentLoaded",function(){
 
     let formularioMostrarMoviles = document.getElementById("formularioMostrarMoviles");
@@ -11,12 +15,19 @@ document.addEventListener("DOMContentLoaded",function(){
 
     let selectMoviles = document.getElementById("selectMoviles");
     selectMoviles.addEventListener("change",obtenerMovilesSimilares);
-})
+});
+
+
 
 function mostrarMoviles(event){
     event.preventDefault();
     mostrarMovilesRefactorizados("listadoMoviles",listaMoviles);
     filtrarPrecio();
+}
+
+function mostrarMoviles2(){
+    mostrarMovilesRefactorizados("orden",listaMoviles);
+   
 }
 
 function mostrarMovilesRefactorizados(idDivMostrar,lista){
@@ -28,7 +39,7 @@ function mostrarMovilesRefactorizados(idDivMostrar,lista){
         let liMovil = document.createElement("li");
         liMovil.innerHTML = "<b>Marca:</b> "+ movil.marca +" <b>Modelo:</b> "+ movil.modelo +" <b>Precio: </b>"+ movil.precio +" <b>Camara: </b>"+ movil.camara;
         ulMoviles.appendChild(liMovil);
-    }  
+    }
     divListaMoviles.appendChild(ulMoviles);
 }
 
@@ -43,7 +54,7 @@ function filtrarPrecio(){
 /*MOVIL SIMILAR */
 
 function crearSelectMoviles(idSelectMovil){
-    let select = document.getElementById(idSelectMovil); 
+    let select = document.getElementById(idSelectMovil);
     for(movil of listaMoviles){
         let option = document.createElement("option");
         option.value = movil.id;
@@ -64,7 +75,7 @@ function obtenerMovilesSimilares(event){
         let movilesMostrados = 0;
         let movilSeleccionado = listaMoviles.find( movil => movil.id === parseInt(idMovilSeleccionado));
         spanNombreMovil.innerHTML = ` ${movilSeleccionado.marca} ${movilSeleccionado.modelo} (${"ROM: "+movilSeleccionado.rom+"gb"} - ${"RAM: "+movilSeleccionado.ram+"gb"})`;
-        
+
         let movilesSimilares = listaMoviles
                                     .filter(movil => movil.rom === movilSeleccionado.rom)
                                     .filter(movil => movil.ram === movilSeleccionado.ram)
@@ -85,7 +96,7 @@ function obtenerMovilesSimilares(event){
 }
 
 function crearSelectUsuario(idUsuario){
-    let select = document.getElementById(idUsuario); 
+    let select = document.getElementById(idUsuario);
     for(usuario of listaUsuarios){
         let option = document.createElement("option");
         option.value = usuario.id;
@@ -110,7 +121,52 @@ function obtenerMovilesComprados(event){
           //  liMovil.innerHTML = movilVotado.marca +" "+ movilVotado.modelo +" "+movilVotado.puntuacion;
           liMovil.innerHTML = movil.marca +" "+ movil.modelo;
           ulMovilesComprados.appendChild(liMovil);
-        
+
         }
     }
 }
+
+function movilMayorMenor(){
+    let selector = $("#selectOrden").val();
+
+    if( selector === ""){
+        $("#orden").empty();
+        let divError = $("<div>DEBES SELECCIONAR UNO!</div>");
+        $("#orden").append(divError);
+
+    }
+    
+    if (selector === "menor") {
+        $("#orden").empty();
+    let ordenaMayor = listaMoviles.sort(function (o1, o2) {
+        if (o1.precio > o2.precio) {
+                return 1;
+        } else if (o1.precio < o2.precio) {
+                return -1;
+            }
+            return 0;
+        }); 
+        mostrarMoviles2("orden", ordenaMayor);
+
+    }
+
+    if(selector === "mayor"){
+        $("#orden").empty();
+    let ordenaMenor = listaMoviles.sort(function (o1, o2) {
+        if (o1.precio < o2.precio) {
+             return 1;
+        } else if (o1.precio > o2.precio) {
+             return -1;
+         }
+         return 0;
+     }); 
+     mostrarMoviles2("orden", ordenaMenor);
+     
+
+}
+
+
+}
+
+
+
