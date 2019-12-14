@@ -1,3 +1,7 @@
+$(document).ready(function () {
+    $("#selectMovilMarca").change(muestraMovilMismaMarca);
+});
+
 document.addEventListener("DOMContentLoaded",function(){
     crearSelectUsuario("selectUsuario");
     crearSelectMoviles("selectMovilVotar");
@@ -38,6 +42,19 @@ function crearSelectMoviles(idMovil){
     }
 }
 function crearSelectMarcas(marcaMovil){
+        /**let select = document.getElementById(marcaMovil);
+    let listaMarcas= [];
+    for(movil of listaMoviles){
+        listaMarcas.push(movil.marca);
+    }
+    let listaMarcaSin = new Set(listaMarcas);
+    for (let i = 0; i < listaMarcaSin.length; i++) {
+        let option = document.createElement("option");
+        option.value = listaMarcaSin[i];
+        option.innerHTML = listaMarcaSin[i];
+        select.appendChild(option); 
+    }
+      */
     let select = document.getElementById(marcaMovil); 
     for(movil of listaMoviles){
         let option = document.createElement("option");
@@ -46,6 +63,32 @@ function crearSelectMarcas(marcaMovil){
         select.appendChild(option);
     }
 }
+
+function muestraMovilMismaMarca() {
+    /**
+     * let eleccion = $("#selectOrden").val();
+
+    let inputPrecio = $("#precio").val();
+    let inputPreParseado = parseInt(inputPrecio);
+
+    let inputMarca = $("#marca").val();
+    let inputMarParseado = inputMarca;
+
+    let inputCamara = $("#camara").val();
+    let inputCamParseado = parseInt(inputCamara);
+
+    let MovilesQueCumplen = listaMoviles.filter(movil => inputPreParseado === movil.precio && inputMarParseado === movil.marca && inputCamParseado === movil.camara);
+mostrarMovilesOrdenados("listadoMovilesQueCumplen", MovilesQueCumplen);
+     */
+    
+    let marcaSelecionada= $("#selectMovilMarca").val();
+    let movilesDeEsaMarca=  listaMoviles.filter(movil => marcaSelecionada === movil.marca );
+
+imprimeDiv("muestraMismaMarca",movilesDeEsaMarca);
+}
+
+
+
 
 function obtenerMovilesVotados(event){
     let selector = document.getElementById("selectUsuario");
