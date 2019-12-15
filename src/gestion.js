@@ -131,51 +131,42 @@ function obtieneValue() {
 function muestraModeloYFiltros() {
     let usuarioSeleccionado = $("#selectUsuario").val();
     let modeloSelecionado = $("#selectMovilModelo").val();
-  
-        let borrador = document.getElementById("muestraFavoritoYfiltro");
-        borrador.innerHTML = "";
-
-
 
     for (let voto of listaTodosLosVotos) {
+        let borrador = document.getElementById("muestraFavoritoYfiltro");
+        borrador.innerHTML = "";
 
         if (voto.persona.nombre === usuarioSeleccionado) {
 
             if (voto.movil.modelo === modeloSelecionado) {
 
-                if (voto.puntuacion === true) {
-                    /**
-                     * VACIO LO QUE PUDIESE ESTAR IMPRESO ANTES EN EL DIV QUE LUEGO VOY A IMPRIMIR.
-                     * 
-                     */
+                if (voto.puntuacion === 1) {
+                    //VACIO LO QUE PUDIESE ESTAR IMPRESO ANTES EN EL DIV QUE LUEGO VOY A IMPRIMIR.
+                    let borrador = document.getElementById("muestraFavoritoYfiltro");
+                    borrador.innerHTML = "";
 
-
-                    /**
-                    * CREO EL FILTRO PARA QUE MUESTRE MOVILES DEL MODELO SELECCIONADO
-                    */
-
+                    //CREO EL FILTRO PARA QUE MUESTRE MOVILES DEL MODELO SELECCIONADO.
                     let MovilesBienValorado = listaMoviles.filter(movil => modeloSelecionado === movil.modelo);
 
-                    /**
-                     * LLAMO A LA FUNCION DE FUNCIONES GENERALES QUE IMPRIME CON EL NOMBRE DEL DIV Y UN FILTRO COMO PARAMETROS./**
-                                         * CREO EL FILTRO PARA QUE MUESTRE MOVILES DEL MODELO SELECCIONADO
-                                         */
-
+                    //LLAMO A LA FUNCION DE FUNCIONES GENERALES QUE IMPRIME CON EL NOMBRE DEL DIV Y UN FILTRO COMO PARAMETROS.
                     imprimeDiv("muestraFavoritoYfiltro", MovilesBienValorado);
-                } else {
+
+
                     let borrando = document.createElement("li");
-                    borrando.innerHTML = "ESE USUARIO NO HA VALORADO BIEN A ESE MODELO o NO VOTO POR EL";
+                    borrando.innerHTML = "ESE USUARIO NO HA VALORADO BIEN A ESE MODELO O NO VOTO POR EL";
                     borrador.appendChild(borrando);
                 }
-            } else {
-                let borrando = document.createElement("li");
-                borrando.innerHTML = "ESE USUARIO NO HA VALORADO BIEN A ESE MODELO o NO VOTO POR EL";
-                borrador.appendChild(borrando);
             }
-        } else {
+        }
+        if (voto.persona.nombre !== usuarioSeleccionado || voto.movil.modelo !== modeloSelecionado || voto.puntuacion === 0) {
+            //VACIO LO QUE PUDIESE ESTAR IMPRESO ANTES EN EL DIV QUE LUEGO VOY A IMPRIMIR.
+            let borrador = document.getElementById("muestraFavoritoYfiltro");
+            borrador.innerHTML = "";
+            //AÑADO UN MENSAJE DE QUE NO SE VALORADO BIEN O NO HA SIDO VOTADO, POR EL USUARIO SELECCIONADO. 
             let borrando = document.createElement("li");
-            borrando.innerHTML = "ESE USUARIO NO HA VALORADO BIEN A ESE MODELO o NO VOTO POR EL";
+            borrando.innerHTML = "ESE USUARIO NO HA VALORADO BIEN A ESE MODELO O NO VOTO POR EL";
             borrador.appendChild(borrando);
+
         }
     }
 }
