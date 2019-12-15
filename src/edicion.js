@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded",function(){
 
     let formularioMostrarMoviles = document.getElementById("mostrarMoviles");
     formularioMostrarMoviles.addEventListener("click",mostrarMoviles);
+
+    crearSelectUsuario("idUsuario");
 })
 
 $(function(){
@@ -14,13 +16,16 @@ $(function(){
     $("#Bateria").keyup(validarBateria);
     $("#Camara").keyup(validarCamara);
     $("#Precio").keyup(validarPrecio);
+    //Al apretar el boton de crear en el formulario, este llamara a la funcion para validar.
     $("#formularioMostrarMoviles").submit(function(event){
         event.preventDefault();
         validarFormulario();
     })
+    $("#eliminar").click(eliminarMovil);
    
 })
 
+//Funcion donde creamos el movil
 function crearMovil(){
     let idMovil = document.getElementById("Id").value;
     let modeloMovil = document.getElementById("Modelo").value;
@@ -36,12 +41,13 @@ function crearMovil(){
     listaMoviles.push(movil1);
 }
 
+//reutiizamos la funcion mostrarMovilesRefactorizados para mostrar los moviles
 function mostrarMoviles(event){
     event.preventDefault();
     mostrarMovilesRefactorizados("listadoMoviles",listaMoviles);
 }
 
-
+//Para mostrar los moviles que tenemos
 function mostrarMovilesRefactorizados(idDivMostrar,lista){
     let divListaMoviles = document.getElementById(idDivMostrar);
     //Borro el contenido de el div ListadoPersonas
@@ -63,7 +69,7 @@ function validarId(event){
     $("#erroresId").empty();
 
 
-    //Comprobamos que usa solo letras y espacio
+    //Comprobamos que usa solo numeros
     if(!/^[0-9]+$/.test(valorId)){
         esCorrecto = false;
         let spanError = $("<span>SÓLO SE PERMITEN NÚMEROS</span>");
@@ -117,7 +123,8 @@ function validarMarca(event){
         $("#erroresMarca").append(spanError);
     }
 
-    if(!/^(?=.*apple|.*samsung|.*nokia|.*huawei|.*xiaomi).*$/.test(valorMarca)){
+    //Solo son permitidas estas marcas
+    if(!/^(apple|samsung|nokia|huawei|xiaomi)$/.test(valorMarca)){
         esCorrecto = false;
         let spanError = $("<span> MARCAS PERMITIDAS: APPLE - SAMSUNG - NOKIA - HUAWEI - XIAOMI )</span>");
         $("#erroresMarca").append(spanError);
@@ -140,7 +147,7 @@ function validarPantalla(event){
     $("#erroresPantalla").empty();
 
 
-    //Comprobamos que usa solo letras y espacio
+    //Comprobamos que usa solo numeros
     if(!/^[0-9]+$/.test(valorPantalla)){
         esCorrecto = false;
         let spanError = $("<span>SÓLO SE PERMITEN NÚMEROS</span>");
@@ -163,7 +170,7 @@ function validarRom(event){
     $("#erroresRom").empty();
 
 
-    //Comprobamos que usa solo letras y espacio
+    //Comprobamos que usa solo numeros
     if(!/^[0-9]+$/.test(valorRom)){
         esCorrecto = false;
         let spanError = $("<span>SÓLO SE PERMITEN NÚMEROS</span>");
@@ -186,7 +193,7 @@ function validarRam(event){
     $("#erroresRam").empty();
 
 
-    //Comprobamos que usa solo letras y espacio
+    //Comprobamos que usa solo numeros
     if(!/^[0-9]+$/.test(valorRam)){
         esCorrecto = false;
         let spanError = $("<span>SÓLO SE PERMITEN NÚMEROS</span>");
@@ -209,7 +216,7 @@ function validarBateria(event){
     $("#erroresBateria").empty();
 
 
-    //Comprobamos que usa solo letras y espacio
+    //Comprobamos que usa solo numeros
     if(!/^[0-9]+$/.test(valorBateria)){
         esCorrecto = false;
         let spanError = $("<span>SÓLO SE PERMITEN NÚMEROS</span>");
@@ -232,7 +239,7 @@ function validarCamara(event){
     $("#erroresCamara").empty();
 
 
-    //Comprobamos que usa solo letras y espacio
+    //Comprobamos que usa solo numeros
     if(!/^[0-9]+$/.test(valorCamara)){
         esCorrecto = false;
         let spanError = $("<span>SÓLO SE PERMITEN NÚMEROS</span>");
@@ -255,7 +262,7 @@ function validarPrecio(event){
     $("#erroresPrecio").empty();
 
 
-    //Comprobamos que usa solo letras y espacio
+    //Comprobamos que usa solo numeros
     if(!/^[0-9]+$/.test(valorPrecio)){
         esCorrecto = false;
         let spanError = $("<span>SÓLO SE PERMITEN NÚMEROS</span>");
@@ -282,13 +289,42 @@ function validarFormulario(){
     let esCorrectoCamara = validarCamara();
     let esCorrectoPrecio = validarPrecio();
 
+    //Si todos los campos son correctos , Valida y crea el movil.
     if(esCorrectoId && esCorrectoModelo && esCorrectoMarca && esCorrectoPantalla && esCorrectoRom &&
         esCorrectoRam && esCorrectoBateria && esCorrectoCamara && esCorrectoPrecio){
         alert("TODO ESTA CORRECTO");
         let form = $("formularioMostrarMoviles");
         form.submit();
+        //le pasamos la funcion para que cree el movil
         crearMovil();
+    //Si no son correctos no valida ni crea el movil.
     }else{
         alert("HAY ERRORES EN EL FORMULARIO");
     }
 }
+
+    function eliminarMovil(){
+        $("#listaMoviles2").empty();
+        let contador = 0;
+        let idDelete = parseInt($("#idDelete").val());
+        $( "div.demo-container" ).html();
+        $("#listaMoviles2").append("<ul></ul>");
+        
+    //     listaMoviles.filter( x => x.id === idDelete).splice();
+    //    //for(let i=0; i<= listaMoviles.length; i++){
+    //     //    if(idDelete === movil.id){
+    //     //     listaMoviles[i].delete;
+    //     //    }
+    //     //}
+    //     console.log(listaMoviles);
+
+        for(movil of listaMoviles){
+            if(movil.id === idDelete){
+                console.log("adios");
+            }else{
+                console.log("hola");
+                $("#listaMoviles2").append("<li><b>ID: </b> "+ movil.id +"<b> MODELO: </b> "+ movil.modelo +"<b> MARCA: </b> "+ movil.marca +"<b> PANTALLA: </b> "+ movil.pantalla +" <b> ROM: </b> "+ movil.rom +" <b> RAM: </b>"+ movil.ram +" <b> BATERIA: </b>"+ movil.bateria +"<b> CAMARA: </b> "+ movil.camara +"<b> PRECIO: </b> "+ movil.precio+"</li>");
+            }
+
+        }
+    }
