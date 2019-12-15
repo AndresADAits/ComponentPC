@@ -18,13 +18,14 @@ document.addEventListener("DOMContentLoaded",function(){
 });
 
 
-
+//Reutilizamos mostrarMovilesRefactorizados para mostrar moviles
 function mostrarMoviles(event){
     event.preventDefault();
     mostrarMovilesRefactorizados("listadoMoviles",listaMoviles);
     filtrarPrecio();
 }
 
+//Reutilizamos mostrarMovilesRefactorizados para mostrar moviles
 function mostrarMoviles2(){
     mostrarMovilesRefactorizados("orden",listaMoviles);
    
@@ -42,6 +43,7 @@ function mostrarMovilesRefactorizados(idDivMostrar,lista){
     }
     divListaMoviles.appendChild(ulMoviles);
 }
+
 
 function filtrarPrecio(){
     let ncamara = parseInt((document.getElementById("camara")).value);
@@ -95,6 +97,7 @@ function obtenerMovilesSimilares(event){
     }
 }
 
+//Funcion en la que obtenemos los moviles que ha comprado el usuario seleccionado
 function obtenerMovilesComprados(event){
     let selector = document.getElementById("selectUsuario");
     let idUsuarioSeleccionado = selector.value;
@@ -107,24 +110,24 @@ function obtenerMovilesComprados(event){
         spanNombreUsuario.innerHTML = persona.nombre;
         for(let movil of persona.movilComprado){
             let liMovil = document.createElement("li");
-          //  liMovil.innerHTML = movilVotado.marca +" "+ movilVotado.modelo +" "+movilVotado.puntuacion;
           liMovil.innerHTML = movil.marca +" "+ movil.modelo;
           ulMovilesComprados.appendChild(liMovil);
 
         }
     }
 }
-
+//Funcion para mostar moviles por mayor o menor precio
 function movilMayorMenor(){
     let selector = $("#selectOrden").val();
 
+    //Si seleccionamos vacio aparecerá el mensaje y ningun movil
     if( selector === ""){
         $("#orden").empty();
         let divError = $("<div>DEBES SELECCIONAR UNO!</div>");
         $("#orden").append(divError);
 
     }
-    
+    //Si seleccionamos menor aparecerá la lista de moviles ordenados por menor precio
     if (selector === "menor") {
         $("#orden").empty();
     let ordenaMayor = listaMoviles.sort(function (o1, o2) {
@@ -138,7 +141,7 @@ function movilMayorMenor(){
         mostrarMoviles2("orden", ordenaMayor);
 
     }
-
+    //Si seleccionamos mayor aparecerá la lista de moviles ordenados por mayor precio
     if(selector === "mayor"){
         $("#orden").empty();
     let ordenaMenor = listaMoviles.sort(function (o1, o2) {

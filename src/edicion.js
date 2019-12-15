@@ -319,9 +319,11 @@ function validarFormulario(){
     //     console.log(listaMoviles);
 
         for(movil of listaMoviles){
+            //Si id del movil coincide con idDelete no aparecerá el movil con esa ID
             if(movil.id === idDelete){
                 console.log("adios");
             }else{
+                //Si id del movil no coincide con idDelete aparecerá el movil que no tenga esa ID
                 console.log("hola");
                 $("#listaMoviles2").append("<li><b>ID: </b> "+ movil.id +"<b> MODELO: </b> "+ movil.modelo +"<b> MARCA: </b> "+ movil.marca +"<b> PANTALLA: </b> "+ movil.pantalla +" <b> ROM: </b> "+ movil.rom +" <b> RAM: </b>"+ movil.ram +" <b> BATERIA: </b>"+ movil.bateria +"<b> CAMARA: </b> "+ movil.camara +"<b> PRECIO: </b> "+ movil.precio+"</li>");
             }
