@@ -22,6 +22,24 @@ function imprimeDiv(idDivMostrar, lista) {
     divListaMoviles.appendChild(ulMoviles);
 }
 
+/** FUNCION PARA IMPRIMIR UN DIV CON MENSAJE DE ERROR.
+ * 
+ * @param {Nombre del div donde se va a imprimir el mesnaje de error} idDivMostrar 
+ * 
+ */
+function imprimeDivError(idDivMostrar) {
+    let divListaMoviles = document.getElementById(idDivMostrar);
+    //Borro el contenido de el div ListadoPersonas
+    divListaMoviles.innerHTML = "";
+    let ulMoviles = document.createElement("ul");
+   
+        let liMovil = document.createElement("li");
+        liMovil.innerHTML = " NO EXISTE UN ARTICULO CON ESAS CARACTERISTICAS";
+        ulMoviles.appendChild(liMovil);
+    
+    divListaMoviles.appendChild(ulMoviles);
+}
+
 
 /**FUNCION PARA CREAR UN SELECT EN HTML CON UNA LISTA DE MARCAS DE MOVILES.
  * 
@@ -88,7 +106,7 @@ function crearSelectUsuario(idUsuario) {
 /**FUNCION PARA CREAR UN SELECT CON LOS USUARIOS QUE EXISTEN(MODIFICADA).
  * OPTION.VALUE SERA EL NOMBRE DEL USUARIO.
  * @param {Nombre del select en el que vamos a introducir options con los nombres de usuarios} idUsuario 
- */
+ */ 
 function crearSelectUsuarioPorNombre(idUsuario) {
     let select = document.getElementById(idUsuario);
     for (usuario of listaUsuarios) {
@@ -97,4 +115,18 @@ function crearSelectUsuarioPorNombre(idUsuario) {
         option.innerHTML = usuario.nombre;
         select.appendChild(option);
     }
+}
+
+/**FUNCION PARA IMPRIMIR TEXTO
+ * 
+ * @param {Nombre del div en que vamos a imprimir} nombreDiv 
+ * @param {Texto que vamos a imprimir} mensaje 
+ */
+function imprimeMensaje(nombreDiv,mensaje) {
+
+    let dondeImprimo= document.getElementById(nombreDiv);
+    let texto= "";
+    texto.innerHTML= mensaje;
+
+    dondeImprimo.appendChild(texto);
 }

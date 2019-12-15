@@ -8,18 +8,26 @@ $(document).ready(function () {
     $("#selectMovilModelo").change(muestraModeloYFiltros);
 });
 
+$(document).ready(function () {
+    $("#selectUsuVot").change(sumaVotos);
+});
+
 
 document.addEventListener("DOMContentLoaded", function () {
-    /**
- * CREAMOS UN SELECT CON LOS NOMBRES DE LOS USUARIOS
- */
+
+    //CREAMOS UN SELECT CON LOS NOMBRES DE LOS USUARIOS
+
     crearSelectUsuarioPorNombre("selectUsuario");
 
 
-    /**
-     * CREAMOS OTRO SELECT CON LOS MODELOS DE MOVILES
-    */
+
+    //CREAMOS OTRO SELECT CON LOS MODELOS DE MOVILES
+
     crearSelectModelos("selectMovilModelo");
+
+    //CREAMOS UN SELECT USUARIO PARA USAR EL RECUENTO DE VOTOS.
+
+    crearSelectUsuarioPorNombre("selectUsuVot");
 
     let inputSelectFiltro = document.getElementById("selectFiltro");
     inputSelectFiltro.addEventListener("change", ordenaPorFiltro);
@@ -31,34 +39,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
 })
 
-function mostrarMovilesOrdenados(idDivMostrar, lista) {
-    let divListaMoviles = document.getElementById(idDivMostrar);
-    //Borro el contenido de el div ListadoPersonas
-    divListaMoviles.innerHTML = "";
-    let ulMoviles = document.createElement("ul");
-    for (let movil of lista) {
-        let liMovil = document.createElement("li");
-        liMovil.innerHTML = "<b>ID:</b> " + movil.id + " <b>Modelo:</b> " + movil.modelo + " <b>Marca:</b> " + movil.marca + " <b>Bateria:</b> " + movil.bateria + " <b>Precio: </b>" + movil.precio + " <b>Camara: </b>" + movil.camara;
-        ulMoviles.appendChild(liMovil);
-    }
-    divListaMoviles.appendChild(ulMoviles);
-}
-
-
-
 function ordenaPorFiltro() {
-
-    // let listaFiltrada = listaMoviles.filter( x => nprecio === x.precio && nmarca === x.marca && ncamara === x.camara);
-
-    // return mostrarMovilesOrdenados("Movilesordenados",listaMovilesOrdenados);
+    let divImpreso = document.getElementById("Movilesordenados");
+    //Borro el contenido del div donde se va imprimiendo las distintas situaciones
+    divImpreso.innerHTML = "";
     let inputFiltro = document.getElementById("selectFiltro");
     let valor = inputFiltro.value;
     if (valor === "") {
         /**estado de reposo */
+        divImpreso.innerHTML = "";
     }
 
     if (valor === "id") {
-        mostrarMovilesOrdenados("Movilesordenados", listaMoviles.sort());
+        let ordenaId = listaMoviles.sort(function (o1, o2) {
+            if (o1.id > o2.id) { //comparación lexicogŕafica
+                return 1;
+            } else if (o1.id < o2.id) {
+                return -1;
+            }
+            return 0;
+        });
+        divImpreso.innerHTML = "";
+        imprimeDiv("Movilesordenados", ordenaId);
     }
     if (valor === "modelo") {
         let ordenaModelo = listaMoviles.sort(function (o1, o2) {
@@ -69,8 +71,8 @@ function ordenaPorFiltro() {
             }
             return 0;
         });
-
-        mostrarMovilesOrdenados("Movilesordenados", ordenaModelo);
+        divImpreso.innerHTML = "";
+        imprimeDiv("Movilesordenados", ordenaModelo);
     }
     if (valor === "marca") {
         let ordenaMarca = listaMoviles.sort(function (o1, o2) {
@@ -81,7 +83,8 @@ function ordenaPorFiltro() {
             }
             return 0;
         });
-        mostrarMovilesOrdenados("Movilesordenados", ordenaMarca);
+        divImpreso.innerHTML = "";
+        imprimeDiv("Movilesordenados", ordenaMarca);
 
     }
     if (valor === "bateria") {
@@ -93,7 +96,8 @@ function ordenaPorFiltro() {
             }
             return 0;
         });
-        mostrarMovilesOrdenados("Movilesordenados", ordenaBateria);
+        divImpreso.innerHTML = "";
+        imprimeDiv("Movilesordenados", ordenaBateria);
 
     }
     if (valor === "precio") {
@@ -105,7 +109,8 @@ function ordenaPorFiltro() {
             }
             return 0;
         });
-        mostrarMovilesOrdenados("Movilesordenados", ordenaPrecio);
+        divImpreso.innerHTML = "";
+        imprimeDiv("Movilesordenados", ordenaPrecio);
     }
 }
 
@@ -122,51 +127,60 @@ function obtieneValue() {
     let inputCamParseado = parseInt(inputCamara);
 
     let MovilesQueCumplen = listaMoviles.filter(movil => inputPreParseado === movil.precio && inputMarParseado === movil.marca && inputCamParseado === movil.camara);
-    mostrarMovilesOrdenados("listadoMovilesQueCumplen", MovilesQueCumplen);
+    imprimeDiv("listadoMovilesQueCumplen", MovilesQueCumplen);
 }
-
-
 
 
 function muestraModeloYFiltros() {
     let usuarioSeleccionado = $("#selectUsuario").val();
     let modeloSelecionado = $("#selectMovilModelo").val();
 
+    let divImpreso = document.getElementById("muestraFavoritoYfiltro");
+    //Borro el contenido del div donde se va imprimiendo las distintas situaciones
+    divImpreso.innerHTML = "";
+    let contador = false;
+
     for (let voto of listaTodosLosVotos) {
-        let borrador = document.getElementById("muestraFavoritoYfiltro");
-        borrador.innerHTML = "";
 
         if (voto.persona.nombre === usuarioSeleccionado) {
 
             if (voto.movil.modelo === modeloSelecionado) {
 
-                if (voto.puntuacion === 1) {
-                    //VACIO LO QUE PUDIESE ESTAR IMPRESO ANTES EN EL DIV QUE LUEGO VOY A IMPRIMIR.
-                    let borrador = document.getElementById("muestraFavoritoYfiltro");
-                    borrador.innerHTML = "";
+                if (voto.puntuacion === true) {
 
-                    //CREO EL FILTRO PARA QUE MUESTRE MOVILES DEL MODELO SELECCIONADO.
-                    let MovilesBienValorado = listaMoviles.filter(movil => modeloSelecionado === movil.modelo);
-
-                    //LLAMO A LA FUNCION DE FUNCIONES GENERALES QUE IMPRIME CON EL NOMBRE DEL DIV Y UN FILTRO COMO PARAMETROS.
-                    imprimeDiv("muestraFavoritoYfiltro", MovilesBienValorado);
-
-
-                    let borrando = document.createElement("li");
-                    borrando.innerHTML = "ESE USUARIO NO HA VALORADO BIEN A ESE MODELO O NO VOTO POR EL";
-                    borrador.appendChild(borrando);
+                    contador = true;
                 }
             }
         }
-        if (voto.persona.nombre !== usuarioSeleccionado || voto.movil.modelo !== modeloSelecionado || voto.puntuacion === 0) {
-            //VACIO LO QUE PUDIESE ESTAR IMPRESO ANTES EN EL DIV QUE LUEGO VOY A IMPRIMIR.
-            let borrador = document.getElementById("muestraFavoritoYfiltro");
-            borrador.innerHTML = "";
-            //AÑADO UN MENSAJE DE QUE NO SE VALORADO BIEN O NO HA SIDO VOTADO, POR EL USUARIO SELECCIONADO. 
-            let borrando = document.createElement("li");
-            borrando.innerHTML = "ESE USUARIO NO HA VALORADO BIEN A ESE MODELO O NO VOTO POR EL";
-            borrador.appendChild(borrando);
+    }
+    if (contador) {
 
-        }
+        let MovilesBienValorado = listaMoviles.filter(movil => modeloSelecionado === movil.modelo);
+
+
+        imprimeDiv("muestraFavoritoYfiltro", MovilesBienValorado);
+
+    } else {
+        imprimeDivError("muestraFavoritoYfiltro");
     }
 }
+
+function sumaVotos() {
+    let cuentaVotoT = 0;
+    let cuentaVotoP = 0;
+    let usuarioVotoSeleccionado = $("#selectUsuVot").val();
+
+    for (let voto of listaTodosLosVotos) {
+        cuentaVotoT++;
+        if (voto.persona.nombre === usuarioVotoSeleccionado) {
+            cuentaVotoP++;
+        }
+
+    }
+
+    let mensaje = "La suma de votos totales es " + cuentaVotoT + ". Y el usuario " + usuarioVotoSeleccionado + " voto  " + cuentaVotoP + "veces";
+    alert(mensaje);
+   // imprimeMensaje("imprimeAqui", mensaje);
+
+}
+
