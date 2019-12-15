@@ -1,0 +1,100 @@
+Yesterday (Sat, Dec 14th)
+-----------------------------------------------------------------
+              Hours coded :                                 7.45
+      Lines of code added :                                  213
+    Lines of code deleted :                                    2
+         Characters added :                                3,589
+       Characters deleted :                                1,206
+         Total keystrokes :                                5,397
+                      KPM :                                12.06
+               Live share :                                0 min
+             Top language :                                 html
+
+Last week (Sun, Dec 8th - Sat, Dec 14th)
+-----------------------------------------------------------------
+              Hours coded :                                21.73
+      Lines of code added :                                  598
+    Lines of code deleted :                                    4
+         Characters added :                                8,554
+       Characters deleted :                                3,218
+         Total keystrokes :                               13,471
+                      KPM :                                10.33
+               Live share :                                0 min
+             Top language :                                 html
+
+  📂 Weekly top projects
+  --------------------------------------------------------------
+  1.  Interfaces                                         8.6 hrs
+  2.  ComponentPC                                        7.3 hrs
+  3.  salvavidasCliente                                  2.9 hrs
+  4.  ComponentPCAndres                                  1.4 hrs
+  5.  UntitledWorkspace                                  1.2 hrs
+  6.  src                                                 16 min
+  7.  Nueva carpeta                                        1 min
+
+  🔥 Weekly code time heatmap
+  --------------------------------------------------------------
+      12a 1a 2a 3a 4a 5a 6a 7a 8a 9a 10a 11a 12p 1p 2p 3p 4p 5p 6p 7p 8p 9p 10p 11p 
+  Sun ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ 🔵 🔵 🔵 🔵 🔵 ⚪ 🔵 🔵 
+  Mon ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ 🔵 ⚪ 🔵 🔵 🔵 
+  Tue 🔵 ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ 🔵 🔵 🔵 ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ 🔵 🔵 🔵 
+  Wed ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ 🔵 🔵 🔵 🔵 
+  Thu 🔵 ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ 🔵 ⚪ ⚪ ⚪ ⚪ 🔵 🔵 🔵 🔵 🔵 🔵 
+  Fri ⚪ 🔵 ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ 🔵 🔵 🔵 🔵 🔵 🔵 🔵 🔵 🔵 ⚪ ⚪ 🔵 🔵 🔵 
+  Sat ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ 
+
+90-day avg by day of week
+-----------------------------------------------------------------
+                   Monday : ▮ 9 min
+                  Tuesday : ▮▮ 23 min
+                Wednesday : ▮▮ 29 min
+                 Thursday : ▮ 11 min
+                   Friday : ▮▮ 29 min
+                 Saturday : ▮▮▮ 46 min
+                   Sunday : ▮▮ 35 min
+
+Last 90 days (Sep 16th, 2019 - Dec 14th, 2019)
+-----------------------------------------------------------------
+              Hours coded :                                38.12
+      Lines of code added :                                1,226
+    Lines of code deleted :                                   22
+         Characters added :                               14,909
+       Characters deleted :                                5,503
+         Total keystrokes :                               23,411
+                      KPM :                                10.23
+               Live share :                                0 min
+             Top language :                           javascript
+
+🐲 Your weekly language rankings
+-----------------------------------------------------------------
+                     html : ▮▮▮▮▮▮▮▮▮ 37.5%
+               javascript : ▮▮▮▮▮▮▮ 31.3%
+                plaintext : ▮▮▮▮▮▮ 25.0%
+                      css : ▮▮ 6.3%
+
+🐲 Global weekly language rankings
+-----------------------------------------------------------------
+               javascript : ▮▮▮▮▮ 21.2%
+               typescript : ▮▮ 8.4%
+                      php : ▮▮ 8.0%
+                plaintext : ▮▮ 7.6%
+                   python : ▮▮ 5.9%
+                     html : ▮▮ 5.5%
+                      vue : ▮▮ 4.2%
+                     json : ▮ 3.4%
+          javascriptreact : ▮ 2.6%
+          typescriptreact : ▮ 2.4%
+                     java : ▮ 2.3%
+                     dart : ▮ 2.0%
+                 markdown : ▮ 2.0%
+                      css : ▮ 1.7%
+                     yaml : ▮ 1.6%
+                       go : ▮ 1.6%
+                     scss : ▮ 1.5%
+                   csharp : ▮ 1.5%
+                      cpp : ▮ 1.3%
+                    jsonc : ▮ 1.1%
+                     ruby : ▮ 1.0%
+                    other : ▮▮▮ (350 totaling 13.0%)
+
+

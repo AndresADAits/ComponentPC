@@ -8,7 +8,7 @@
     <script src="clasesYobjetos.js" cache="false"></script>
     <script src="busqueda.js" cache="false"></script>
     <script src="funcionesGenerales.js" cache="false"></script>
-   
+    <link rel="stylesheet" href="estilo.css" />
 </head>
 
 <body>
@@ -23,68 +23,62 @@
 
         </p>
     </nav>
-    <!--Página de búsqueda:
-    * Función que  deberá devolver los elementos filtrados por dos campos especificados por el alumno en el código. ( HECHA )
-    * Función que deberá devolver un elemento que sea similiar a otro. Los detalles que determinan si en elemento es similar a otro deberá especificarlo el alumno en el código.
-    * Función que busca los elementos asociados a un usuario.
-    * Una función definida por el alumno y que encaje en la funcionalidad de la página.-->
-
     <h2>Elementos filtrados por dos campos</h2>
-        <form id="formularioMostrarMoviles">
-            <p>PRECIOS DISPONIBLES: 1000 - 800- 600- 500- 400- 350- 120- 20</p>
-            <label for="precio">Precio:</label>
-            <input type="number" id="precio">
-            <div id="erroresPrecio">
+    <form id="formularioMostrarMoviles">
+        <p>PRECIOS DISPONIBLES: 1000 - 800- 600- 500- 400- 350- 120- 20</p>
+        <label for="precio">Precio:</label>
+        <input type="number" id="precio">
+        <div id="erroresPrecio">
 
-            </div>
-            <p>PIXELES DISPONIBLES: 80 - 64- 45- 35- 32- 15- 1</p>
-            <label for="camara">Cámara:</label>
-            <input type="number" id="camara">
-            <div id="erroresCamara">
+        </div>
+        <p>PIXELES DISPONIBLES: 80 - 64- 45- 35- 32- 15- 1</p>
+        <label for="camara">Cámara:</label>
+        <input type="number" id="camara">
+        <div id="erroresCamara">
 
-            </div>  
-            <button id="mostrarMoviles">Filtrar</button>
-        </form>
+        </div>
+        <button id="mostrarMoviles">Filtrar</button>
+    </form>
     <script src="" async defer></script</script>
     <h3>Moviles:</h3>
     <div id="listadoMoviles">
 
     </div>
     <h2>SELECCIONA EL MOVIL</h1>
-        <select id="selectMoviles" >
+        <select id="selectMoviles">
             <option value=""></option>
         </select>
-    </div>
-    <div>
-        <h2>MOSTRAR MOVILES SIMILARES A:<span id="nombre_movil"></span></h1>
-        <ul id="moviles_similares" >
-            
-        </ul>
-    </div>
+        </div>
+        <div>
+            <h2>MOSTRAR MOVILES SIMILARES A:<span id="nombre_movil"></span></h1>
+                <ul id="moviles_similares">
 
-</div>
-<h2>SELECCIONA EL USUARIO PARA VER LOS MOVILES QUE HA COMPRADO</h1>
-    <select id="selectUsuario" >
-        <option value=""></option>
-    </select>
-</div>
-<div>
-    <h2>MOSTRAR MOVILES COMPRADOS DE:<span id="nombre_usuario"></span></h1>
-    <ul id="moviles_comprados" >
-        
-    </ul>
-</div>
-<div>
-    <h2>MOSTRAR MOVILES  ORDENADOS POR MAYOR/MENOR PRECIO</h2>
-    <select id="selectOrden" >
-        <option value=""></option>
-        <option value="mayor">Ordenar mayor a menor</option>
-        <option value="menor">Ordenar menor a mayor</option>
-    </select>
-    <div id="orden">
+                </ul>
+        </div>
 
-    </div>
-</div>
+        </div>
+        <h2>SELECCIONA EL USUARIO PARA VER LOS MOVILES QUE HA COMPRADO</h1>
+            <select id="selectUsuario">
+                <option value=""></option>
+            </select>
+            </div>
+            <div>
+                <h2>MOSTRAR MOVILES COMPRADOS DE:<span id="nombre_usuario"></span></h1>
+                    <ul id="moviles_comprados">
+
+                    </ul>
+            </div>
+            <div>
+                <h2>MOSTRAR MOVILES ORDENADOS POR MAYOR/MENOR PRECIO</h2>
+                <select id="selectOrden">
+                    <option value=""></option>
+                    <option value="mayor">Ordenar mayor a menor</option>
+                    <option value="menor">Ordenar menor a mayor</option>
+                </select>
+                <div id="orden">
+
+                </div>
+            </div>
 </body>
 
 </html>

@@ -1,12 +1,12 @@
-document.addEventListener("DOMContentLoaded",function(){
+document.addEventListener("DOMContentLoaded", function () {
 
     let formularioMostrarMoviles = document.getElementById("mostrarMoviles");
-    formularioMostrarMoviles.addEventListener("click",mostrarMoviles);
+    formularioMostrarMoviles.addEventListener("click", mostrarMoviles);
 
     crearSelectUsuario("idUsuario");
 })
 
-$(function(){
+$(function () {
     $("#Id").keyup(validarId);
     $("#Modelo").keyup(validarModelo);
     $("#Marca").keyup(validarMarca);
@@ -17,16 +17,16 @@ $(function(){
     $("#Camara").keyup(validarCamara);
     $("#Precio").keyup(validarPrecio);
     //Al apretar el boton de crear en el formulario, este llamara a la funcion para validar.
-    $("#formularioMostrarMoviles").submit(function(event){
+    $("#formularioMostrarMoviles").submit(function (event) {
         event.preventDefault();
         validarFormulario();
     })
     $("#eliminar").click(eliminarMovil);
-   
+
 })
 
 //Funcion donde creamos el movil
-function crearMovil(){
+function crearMovil() {
     let idMovil = document.getElementById("Id").value;
     let modeloMovil = document.getElementById("Modelo").value;
     let marcaMovil = document.getElementById("Marca").value;
@@ -36,33 +36,33 @@ function crearMovil(){
     let bateriaMovil = document.getElementById("Bateria").value;
     let camaraMovil = document.getElementById("Camara").value;
     let precioMovil = document.getElementById("Precio").value;
-    
-    let movil1 = new Movil(idMovil,modeloMovil,marcaMovil,pantallaMovil,romMovil,ramMovil,bateriaMovil,camaraMovil,precioMovil);
+
+    let movil1 = new Movil(idMovil, modeloMovil, marcaMovil, pantallaMovil, romMovil, ramMovil, bateriaMovil, camaraMovil, precioMovil);
     listaMoviles.push(movil1);
 }
 
 //reutiizamos la funcion mostrarMovilesRefactorizados para mostrar los moviles
-function mostrarMoviles(event){
+function mostrarMoviles(event) {
     event.preventDefault();
-    mostrarMovilesRefactorizados("listadoMoviles",listaMoviles);
+    mostrarMovilesRefactorizados("listadoMoviles", listaMoviles);
 }
 
 //Para mostrar los moviles que tenemos
-function mostrarMovilesRefactorizados(idDivMostrar,lista){
+function mostrarMovilesRefactorizados(idDivMostrar, lista) {
     let divListaMoviles = document.getElementById(idDivMostrar);
     //Borro el contenido de el div ListadoPersonas
     divListaMoviles.innerHTML = "";
     let ulMoviles = document.createElement("ul");
-    for(let movil of lista){
+    for (let movil of lista) {
         let liMovil = document.createElement("li");
-        liMovil.innerHTML = "<b>ID: </b> "+ movil.id +"<b> MODELO: </b> "+ movil.modelo +"<b> MARCA: </b> "+ movil.marca +"<b> PANTALLA: </b> "+ movil.pantalla +" <b> ROM: </b> "+ movil.rom +" <b> RAM: </b>"+ movil.ram +" <b> BATERIA: </b>"+ movil.bateria +"<b> CAMARA: </b> "+ movil.camara +"<b> PRECIO: </b> "+ movil.precio;
+        liMovil.innerHTML = "<b>ID: </b> " + movil.id + "<b> MODELO: </b> " + movil.modelo + "<b> MARCA: </b> " + movil.marca + "<b> PANTALLA: </b> " + movil.pantalla + " <b> ROM: </b> " + movil.rom + " <b> RAM: </b>" + movil.ram + " <b> BATERIA: </b>" + movil.bateria + "<b> CAMARA: </b> " + movil.camara + "<b> PRECIO: </b> " + movil.precio;
         ulMoviles.appendChild(liMovil);
-    }  
+    }
     divListaMoviles.appendChild(ulMoviles);
 }
 
 
-function validarId(event){
+function validarId(event) {
     let esCorrecto = true;
     let valorId = $("#Id").val().trim();
     $("#Id").removeClass();
@@ -70,23 +70,23 @@ function validarId(event){
 
 
     //Comprobamos que usa solo numeros
-    if(!/^[0-9]+$/.test(valorId)){
+    if (!/^[0-9]+$/.test(valorId)) {
         esCorrecto = false;
         let spanError = $("<span>SÓLO SE PERMITEN NÚMEROS</span>");
         $("#erroresId").append(spanError);
     }
 
-    if(esCorrecto){
+    if (esCorrecto) {
         $("#Id").addClass("valido");
-    }else{
+    } else {
         $("#Id").addClass("invalido");
     }
 
     return esCorrecto;
-    
+
 }
 
-function validarModelo(event){
+function validarModelo(event) {
     let esCorrecto = true;
     let valorModelo = $("#Modelo").val().trim();
     $("#Modelo").removeClass();
@@ -94,22 +94,22 @@ function validarModelo(event){
 
 
     //Comprobamos que usa solo letras y espacio
-    if(!/^[a-zA-Z ]+$/.test(valorModelo)){
+    if (!/^[a-zA-Z ]+$/.test(valorModelo)) {
         esCorrecto = false;
         let spanError = $("<span>SÓLO SE PERMITEN LETRAS ( Pueden haber espacios entre las palabras )</span>");
         $("#erroresModelo").append(spanError);
     }
 
-    if(esCorrecto){
+    if (esCorrecto) {
         $("#Modelo").addClass("valido");
-    }else{
+    } else {
         $("#Modelo").addClass("invalido");
     }
 
     return esCorrecto;
 }
 
-function validarMarca(event){
+function validarMarca(event) {
     let esCorrecto = true;
     let valorMarca = $("#Marca").val().trim().toLowerCase();
     $("#Marca").removeClass();
@@ -117,30 +117,30 @@ function validarMarca(event){
 
 
     //Comprobamos que usa solo letras y espacio
-    if(!/^[a-zA-Z ]+$/.test(valorMarca)){
+    if (!/^[a-zA-Z ]+$/.test(valorMarca)) {
         esCorrecto = false;
         let spanError = $("<span>SÓLO SE PERMITEN LETRAS ( Pueden haber espacios entre las palabras )</span>");
         $("#erroresMarca").append(spanError);
     }
 
     //Solo son permitidas estas marcas
-    if(!/^(apple|samsung|nokia|huawei|xiaomi)$/.test(valorMarca)){
+    if (!/^(apple|samsung|nokia|huawei|xiaomi)$/.test(valorMarca)) {
         esCorrecto = false;
         let spanError = $("<span> MARCAS PERMITIDAS: APPLE - SAMSUNG - NOKIA - HUAWEI - XIAOMI )</span>");
         $("#erroresMarca").append(spanError);
     }
 
 
-    if(esCorrecto){
+    if (esCorrecto) {
         $("#Marca").addClass("valido");
-    }else{
+    } else {
         $("#Marca").addClass("invalido");
     }
 
     return esCorrecto;
 }
 
-function validarPantalla(event){
+function validarPantalla(event) {
     let esCorrecto = true;
     let valorPantalla = $("#Pantalla").val().trim();
     $("#Pantalla").removeClass();
@@ -148,22 +148,22 @@ function validarPantalla(event){
 
 
     //Comprobamos que usa solo numeros
-    if(!/^[0-9]+$/.test(valorPantalla)){
+    if (!/^[0-9]+$/.test(valorPantalla)) {
         esCorrecto = false;
         let spanError = $("<span>SÓLO SE PERMITEN NÚMEROS</span>");
         $("#erroresPantalla").append(spanError);
     }
 
-    if(esCorrecto){
+    if (esCorrecto) {
         $("#Pantalla").addClass("valido");
-    }else{
+    } else {
         $("#Pantalla").addClass("invalido");
     }
 
     return esCorrecto;
 }
 
-function validarRom(event){
+function validarRom(event) {
     let esCorrecto = true;
     let valorRom = $("#Rom").val().trim();
     $("#Rom").removeClass();
@@ -171,22 +171,22 @@ function validarRom(event){
 
 
     //Comprobamos que usa solo numeros
-    if(!/^[0-9]+$/.test(valorRom)){
+    if (!/^[0-9]+$/.test(valorRom)) {
         esCorrecto = false;
         let spanError = $("<span>SÓLO SE PERMITEN NÚMEROS</span>");
         $("#erroresRom").append(spanError);
     }
-    
-    if(esCorrecto){
+
+    if (esCorrecto) {
         $("#Rom").addClass("valido");
-    }else{
+    } else {
         $("#Rom").addClass("invalido");
     }
 
     return esCorrecto;
 }
 
-function validarRam(event){
+function validarRam(event) {
     let esCorrecto = true;
     let valorRam = $("#Ram").val().trim();
     $("#Ram").removeClass();
@@ -194,22 +194,22 @@ function validarRam(event){
 
 
     //Comprobamos que usa solo numeros
-    if(!/^[0-9]+$/.test(valorRam)){
+    if (!/^[0-9]+$/.test(valorRam)) {
         esCorrecto = false;
         let spanError = $("<span>SÓLO SE PERMITEN NÚMEROS</span>");
         $("#erroresRam").append(spanError);
     }
-    
-    if(esCorrecto){
+
+    if (esCorrecto) {
         $("#Ram").addClass("valido");
-    }else{
+    } else {
         $("#Ram").addClass("invalido");
     }
 
     return esCorrecto;
 }
 
-function validarBateria(event){
+function validarBateria(event) {
     let esCorrecto = true;
     let valorBateria = $("#Bateria").val().trim();
     $("#Bateria").removeClass();
@@ -217,22 +217,22 @@ function validarBateria(event){
 
 
     //Comprobamos que usa solo numeros
-    if(!/^[0-9]+$/.test(valorBateria)){
+    if (!/^[0-9]+$/.test(valorBateria)) {
         esCorrecto = false;
         let spanError = $("<span>SÓLO SE PERMITEN NÚMEROS</span>");
         $("#erroresBateria").append(spanError);
     }
-    
-    if(esCorrecto){
+
+    if (esCorrecto) {
         $("#Bateria").addClass("valido");
-    }else{
+    } else {
         $("#Bateria").addClass("invalido");
     }
 
     return esCorrecto;
 }
 
-function validarCamara(event){
+function validarCamara(event) {
     let esCorrecto = true;
     let valorCamara = $("#Camara").val().trim();
     $("#Camara").removeClass();
@@ -240,22 +240,22 @@ function validarCamara(event){
 
 
     //Comprobamos que usa solo numeros
-    if(!/^[0-9]+$/.test(valorCamara)){
+    if (!/^[0-9]+$/.test(valorCamara)) {
         esCorrecto = false;
         let spanError = $("<span>SÓLO SE PERMITEN NÚMEROS</span>");
         $("#erroresCamara").append(spanError);
     }
-    
-    if(esCorrecto){
+
+    if (esCorrecto) {
         $("#Camara").addClass("valido");
-    }else{
+    } else {
         $("#Camara").addClass("invalido");
     }
 
     return esCorrecto;
 }
 
-function validarPrecio(event){
+function validarPrecio(event) {
     let esCorrecto = true;
     let valorPrecio = $("#Precio").val().trim();
     $("#Precio").removeClass();
@@ -263,22 +263,22 @@ function validarPrecio(event){
 
 
     //Comprobamos que usa solo numeros
-    if(!/^[0-9]+$/.test(valorPrecio)){
+    if (!/^[0-9]+$/.test(valorPrecio)) {
         esCorrecto = false;
         let spanError = $("<span>SÓLO SE PERMITEN NÚMEROS</span>");
         $("#erroresPrecio").append(spanError);
     }
-    
-    if(esCorrecto){
+
+    if (esCorrecto) {
         $("#Precio").addClass("valido");
-    }else{
+    } else {
         $("#Precio").addClass("invalido");
     }
 
     return esCorrecto;
 }
 
-function validarFormulario(){
+function validarFormulario() {
     let esCorrectoId = validarId();
     let esCorrectoModelo = validarModelo();
     let esCorrectoMarca = validarMarca();
@@ -290,26 +290,26 @@ function validarFormulario(){
     let esCorrectoPrecio = validarPrecio();
 
     //Si todos los campos son correctos , Valida y crea el movil.
-    if(esCorrectoId && esCorrectoModelo && esCorrectoMarca && esCorrectoPantalla && esCorrectoRom &&
-        esCorrectoRam && esCorrectoBateria && esCorrectoCamara && esCorrectoPrecio){
+    if (esCorrectoId && esCorrectoModelo && esCorrectoMarca && esCorrectoPantalla && esCorrectoRom &&
+        esCorrectoRam && esCorrectoBateria && esCorrectoCamara && esCorrectoPrecio) {
         alert("TODO ESTA CORRECTO");
         let form = $("formularioMostrarMoviles");
         form.submit();
         //le pasamos la funcion para que cree el movil
         crearMovil();
-    //Si no son correctos no valida ni crea el movil.
-    }else{
+        //Si no son correctos no valida ni crea el movil.
+    } else {
         alert("HAY ERRORES EN EL FORMULARIO");
     }
 }
 
-    function eliminarMovil(){
-        $("#listaMoviles2").empty();
-        let contador = 0;
-        let idDelete = parseInt($("#idDelete").val());
-        $( "div.demo-container" ).html();
-        $("#listaMoviles2").append("<ul></ul>");
-        
+function eliminarMovil() {
+    $("#listaMoviles2").empty();
+    let contador = 0;
+    let idDelete = parseInt($("#idDelete").val());
+    $("div.demo-container").html();
+    $("#listaMoviles2").append("<ul></ul>");
+
     //     listaMoviles.filter( x => x.id === idDelete).splice();
     //    //for(let i=0; i<= listaMoviles.length; i++){
     //     //    if(idDelete === movil.id){
@@ -318,15 +318,15 @@ function validarFormulario(){
     //     //}
     //     console.log(listaMoviles);
 
-        for(movil of listaMoviles){
-            //Si id del movil coincide con idDelete no aparecerá el movil con esa ID
-            if(movil.id === idDelete){
-                console.log("adios");
-            }else{
-                //Si id del movil no coincide con idDelete aparecerá el movil que no tenga esa ID
-                console.log("hola");
-                $("#listaMoviles2").append("<li><b>ID: </b> "+ movil.id +"<b> MODELO: </b> "+ movil.modelo +"<b> MARCA: </b> "+ movil.marca +"<b> PANTALLA: </b> "+ movil.pantalla +" <b> ROM: </b> "+ movil.rom +" <b> RAM: </b>"+ movil.ram +" <b> BATERIA: </b>"+ movil.bateria +"<b> CAMARA: </b> "+ movil.camara +"<b> PRECIO: </b> "+ movil.precio+"</li>");
-            }
-
+    for (movil of listaMoviles) {
+        //Si id del movil coincide con idDelete no aparecerá el movil con esa ID
+        if (movil.id === idDelete) {
+            console.log("adios");
+        } else {
+            //Si id del movil no coincide con idDelete aparecerá el movil que no tenga esa ID
+            console.log("hola");
+            $("#listaMoviles2").append("<li><b>ID: </b> " + movil.id + "<b> MODELO: </b> " + movil.modelo + "<b> MARCA: </b> " + movil.marca + "<b> PANTALLA: </b> " + movil.pantalla + " <b> ROM: </b> " + movil.rom + " <b> RAM: </b>" + movil.ram + " <b> BATERIA: </b>" + movil.bateria + "<b> CAMARA: </b> " + movil.camara + "<b> PRECIO: </b> " + movil.precio + "</li>");
         }
+
     }
+}

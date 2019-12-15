@@ -11,7 +11,7 @@
     <title>GESTION</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="estilo.css" />
 </head>
 
 <body>
@@ -24,19 +24,20 @@
 
         </p>
     </nav>
- 
+
     <h2>Moviles filtrados por varios campos</h2>
     <div>
+        <p>PRECIOS DISPONIBLES: 1000 - 800- 600- 500- 400- 350- 120- 20</p>
         <label for="precio">precio:</label>
         <input type="number" id="precio">
 
 
-
+        <p>MARCAS DISPONIBLES: Nokia-Samsung-Apple-Xiaomi-Huawuei-Alcatel-Motorola-Razer-Duracell-ZTE-Secret</p>
         <label for="marca">Marca:</label>
         <input type="text" id="marca">
 
 
-
+        <p>CAMARAS DISPONIBLES: 1-80</p>
         <label for="camara">camara:</label>
         <input type="number" id="camara">
 
@@ -71,32 +72,32 @@
     <div id="Movilesordenados"></div>
 
     <h2>Muestra moviles mejor valorados con los siguientes requisitos</h2>
-    
-<div><span>Selecciona primero el usuario:</span>
-    <select id="selectUsuario" >
-      
-        <option value=""></option>
-    </select>
-</div>
-<div>
-    <span>Finalmente seleciona el modelo del movil:</span>
-    <select id="selectMovilModelo">
-     
-        <option value=""></option>
-    </select>
-</div>
+
+    <div><span>Selecciona primero el usuario:</span>
+        <select id="selectUsuario">
+
+            <option value=""></option>
+        </select>
+    </div>
+    <div>
+        <span>Finalmente seleciona el modelo del movil:</span>
+        <select id="selectMovilModelo">
+
+            <option value=""></option>
+        </select>
+    </div>
     <h2>Moviles mejor valorados con esos requisitos</h2>
     <div id="muestraFavoritoYfiltro"></div>
 
     <div>
         <h2>Mostrar la suma de los votos</h2>
- 
-    <select id="selectUsuVot">
-     
-        <option value=""></option>
-    </select>
-</div>
-<div id="imprimeAqui"></div>
+
+        <select id="selectUsuVot">
+
+            <option value=""></option>
+        </select>
+    </div>
+    <div id="imprimeAqui"></div>
 
 </body>
 
