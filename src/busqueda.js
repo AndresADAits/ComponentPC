@@ -95,17 +95,6 @@ function obtenerMovilesSimilares(event){
     }
 }
 
-function crearSelectUsuario(idUsuario){
-    let select = document.getElementById(idUsuario);
-    for(usuario of listaUsuarios){
-        let option = document.createElement("option");
-        option.value = usuario.id;
-        option.innerHTML = usuario.nombre;
-        select.appendChild(option);
-    }
-}
-
-
 function obtenerMovilesComprados(event){
     let selector = document.getElementById("selectUsuario");
     let idUsuarioSeleccionado = selector.value;

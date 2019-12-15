@@ -22,9 +22,6 @@ document.addEventListener("DOMContentLoaded",function(){
     botonRecargar.addEventListener("click",obtenerMovilesVotados);
 })
 
-crearSelectUsuario(idUsuario);
-
-
 function crearSelectMoviles(idMovil){
     let select = document.getElementById(idMovil); 
     for(movil of listaMoviles){

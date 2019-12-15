@@ -52,3 +52,13 @@ function crearSelectUsuario(idUsuario){
         select.appendChild(option);
     }
 }
+
+function crearSelectUsuarioPorNombre(idUsuario){
+    let select = document.getElementById(idUsuario); 
+    for(usuario of listaUsuarios){
+        let option = document.createElement("option");
+        option.value = usuario.nombre;
+        option.innerHTML = usuario.nombre;
+        select.appendChild(option);
+    }
+}
