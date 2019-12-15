@@ -1,3 +1,14 @@
+/**
+ * AQUI ESTAN TODAS LAS FUNCIONES QUE HEMOS PODIDO REUTILIZAR, PARA QUE SEAN LLAMADAS DESDE DISTISTAS
+ * PARTES Y PODER HACER UN CÓDIGO MÁS LIMPIO.
+ */
+
+
+/** FUNCION PARA IMPRIMIR UN DIV CON UNA LISTA FILTRADA.
+ * 
+ * @param {Nombre del div donde se va a imprimir una lista} idDivMostrar 
+ * @param {Filtro realizado a una lista para que muestre los elementos de la lista ya filtrada} lista 
+ */
 function imprimeDiv(idDivMostrar, lista) {
     let divListaMoviles = document.getElementById(idDivMostrar);
     //Borro el contenido de el div ListadoPersonas
@@ -11,8 +22,15 @@ function imprimeDiv(idDivMostrar, lista) {
     divListaMoviles.appendChild(ulMoviles);
 }
 
-function crearSelectMarcas(marcaMovil){
-    /**let select = document.getElementById(marcaMovil);
+
+/**FUNCION PARA CREAR UN SELECT EN HTML CON UNA LISTA DE MARCAS DE MOVILES.
+ * 
+ * @param {Nombre del select, del cual vamos a completar sus options} marcaMovil 
+ */
+function crearSelectMarcas(marcaMovil) {
+    /** DE ESTA FORMA SE PRODIA CONSEGUIR QUE NO SE REPITIERAN MARCAS.
+     * 
+     * let select = document.getElementById(marcaMovil);
 let listaMarcas= [];
 for(movil of listaMoviles){
     listaMarcas.push(movil.marca);
@@ -25,27 +43,39 @@ for (let i = 0; i < listaMarcaSin.length; i++) {
     select.appendChild(option); 
 }
   */
-let select = document.getElementById(marcaMovil); 
-for(movil of listaMoviles){
-    let option = document.createElement("option");
-    option.value = movil.marca;
-    option.innerHTML = movil.marca;
-    select.appendChild(option);
-}
-}
-function crearSelectModelos(modeloMovil){
-    let select = document.getElementById(modeloMovil); 
-for(movil of listaMoviles){
-    let option = document.createElement("option");
-    option.value = movil.modelo;
-    option.innerHTML = movil.modelo;
-    select.appendChild(option);
-}
+    let select = document.getElementById(marcaMovil);
+    for (movil of listaMoviles) {
+        let option = document.createElement("option");
+        option.value = movil.marca;
+        option.innerHTML = movil.marca;
+        select.appendChild(option);
+    }
 }
 
-function crearSelectUsuario(idUsuario){
-    let select = document.getElementById(idUsuario); 
-    for(usuario of listaUsuarios){
+
+/**FUNCION PARA CREAR UN SELECT CON  MODELOS DE MOVILES.
+ * 
+ * @param {Nombre del select en el que vamos a introducir options con los modelos de movil} modeloMovil 
+ */
+function crearSelectModelos(modeloMovil) {
+    let select = document.getElementById(modeloMovil);
+    for (movil of listaMoviles) {
+        let option = document.createElement("option");
+        option.value = movil.modelo;
+        option.innerHTML = movil.modelo;
+        select.appendChild(option);
+    }
+}
+
+
+
+/**FUNCION PARA CREAR UN SELECT CON LOS USUARIOS QUE EXISTEN.
+ * OPTION.VALUE SERA EL ID DEL USUARIO
+ * @param {Nombre del select en el que vamos a introducir options con los nombres de usuarios} idUsuario 
+ */
+function crearSelectUsuario(idUsuario) {
+    let select = document.getElementById(idUsuario);
+    for (usuario of listaUsuarios) {
         let option = document.createElement("option");
         option.value = usuario.id;
         option.innerHTML = usuario.nombre;
@@ -53,11 +83,17 @@ function crearSelectUsuario(idUsuario){
     }
 }
 
-function crearSelectUsuarioPorNombre(idUsuario){
-    let select = document.getElementById(idUsuario); 
-    for(usuario of listaUsuarios){
+
+
+/**FUNCION PARA CREAR UN SELECT CON LOS USUARIOS QUE EXISTEN(MODIFICADA).
+ * OPTION.VALUE SERA EL NOMBRE DEL USUARIO.
+ * @param {Nombre del select en el que vamos a introducir options con los nombres de usuarios} idUsuario 
+ */
+function crearSelectUsuarioPorNombre(idUsuario) {
+    let select = document.getElementById(idUsuario);
+    for (usuario of listaUsuarios) {
         let option = document.createElement("option");
-        option.value = usuario.nombre;
+        option.value = usuario.nombre;// CAMBIO CON LA FUNCION ANTERIOR, YA QUE NECESITO EL NOMBRE Y NO EL ID.
         option.innerHTML = usuario.nombre;
         select.appendChild(option);
     }

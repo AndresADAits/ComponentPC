@@ -33,45 +33,7 @@ function crearSelectMoviles(idMovil){
 }
 crearSelectMarcas(marcaMovil);
 
-/**function crearSelectMarcas(marcaMovil){
-        /**let select = document.getElementById(marcaMovil);
-    let listaMarcas= [];
-    for(movil of listaMoviles){
-        listaMarcas.push(movil.marca);
-    }
-    let listaMarcaSin = new Set(listaMarcas);
-    for (let i = 0; i < listaMarcaSin.length; i++) {
-        let option = document.createElement("option");
-        option.value = listaMarcaSin[i];
-        option.innerHTML = listaMarcaSin[i];
-        select.appendChild(option); 
-    }
-      
-     let select = document.getElementById(marcaMovil); 
-     for(movil of listaMoviles){
-         let option = document.createElement("option");
-         option.value = movil.marca;
-         option.innerHTML = movil.marca;
-         select.appendChild(option);
-     }
- } */
-
 function muestraMovilMismaMarca() {
-    /**
-     * let eleccion = $("#selectOrden").val();
-
-    let inputPrecio = $("#precio").val();
-    let inputPreParseado = parseInt(inputPrecio);
-
-    let inputMarca = $("#marca").val();
-    let inputMarParseado = inputMarca;
-
-    let inputCamara = $("#camara").val();
-    let inputCamParseado = parseInt(inputCamara);
-
-    let MovilesQueCumplen = listaMoviles.filter(movil => inputPreParseado === movil.precio && inputMarParseado === movil.marca && inputCamParseado === movil.camara);
-mostrarMovilesOrdenados("listadoMovilesQueCumplen", MovilesQueCumplen);
-     */
     
     let marcaSelecionada= $("#selectMovilMarca").val();
     let movilesDeEsaMarca=  listaMoviles.filter(movil => marcaSelecionada === movil.marca );
@@ -105,31 +67,6 @@ function obtenerMovilesVotados(event){
         }
     }
 }
-
-/**esto es para modificarlo 
- * function obtenerMovilesMarca(event){
-    let selector = document.getElementById("selectMovilMarca");
-    let selecMarca = selector.value;
-    let ulMovilesVotados = document.getElementById("moviles_votados");
-    ulMovilesVotados.innerHTML = "";
-    let spanNombreUsuario = document.getElementById("nombre_usuario");
-    spanNombreUsuario.innerHTML = "";
-    if(selecMarca !== ""){
-       // intentando que salgan los datos de puntuacion y observaciones
-      // let movilesVotados=listaTodosLosVotos;
-      let movilesVotados = [];
-        let persona = listaUsuarios.find( persona => persona.id === parseInt(selecMarca));
-        spanNombreUsuario.innerHTML = persona.nombre;
-        persona.votos.forEach( voto => movilesVotados.push(voto.movil)); 
-        for(let movilVotado of movilesVotados){
-            let liMovil = document.createElement("li");
-          //  liMovil.innerHTML = movilVotado.marca +" "+ movilVotado.modelo +" "+movilVotado.puntuacion;
-          liMovil.innerHTML = movilVotado.marca +" "+ movilVotado.modelo;
-            ulMovilesVotados.appendChild(liMovil);
-        
-        }
-    }
-} */
 
 function validarMovil(){
     let esCorrecto = true;
