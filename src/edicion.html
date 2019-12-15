@@ -13,8 +13,10 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="clasesYobjetos.js" cache="false"></script>
     <script src="edicion.js" cache="false"></script>
+    <link rel="stylesheet" href="estilo.css" />
 </head>
 
 <body>
@@ -37,26 +39,58 @@
             <h2>CREAR MOVIL</h2>
             <label for="Id">Id:</label>
             <input type="text" id="Id"></br>
+            <div id="erroresId" class="error">
+                    
+            </div>
             <label for="Modelo">Modelo:</label>
             <input type="text" id="Modelo"></br>
+            <div id="erroresModelo" class="error">
+                    
+            </div>
             <label for="Marca">Marca:</label>
             <input type="text" id="Marca"></br>
+            <div id="erroresMarca" class="error">
+                    
+            </div>
             <label for="Pantalla">Pantalla:</label>
             <input type="text" id="Pantalla"></br>
+            <div id="erroresPantalla" class="error">
+                    
+            </div>
             <label for="Rom">Rom:</label>
             <input type="text" id="Rom"></br>
+            <div id="erroresRom" class="error">
+                    
+            </div>
             <label for="Ram">Ram:</label>
             <input type="text" id="Ram"></br>
+            <div id="erroresRam" class="error">
+                    
+            </div>
             <label for="Bateria">Batería:</label>
             <input type="text" id="Bateria"></br>
+            <div id="erroresBateria" class="error">
+                    
+            </div>
             <label for="Camara">Cámara:</label>
             <input type="text" id="Camara"></br>
+            <div id="erroresCamara" class="error">
+                    
+            </div>
             <label for="Precio">Precio:</label>
             <input type="text" id="Precio"></br>
+            <div id="erroresPrecio" class="error">
+                    
+            </div>
             <button id="crearMovil">Crear</button>
             <button id="mostrarMoviles">Mostrar</button>
     </form>
-    
+    <div id="error">
+        
+    </div>
+    <div id="movilCreado">
+
+    </div>
     <div id="listadoMoviles">
 
     </div>
